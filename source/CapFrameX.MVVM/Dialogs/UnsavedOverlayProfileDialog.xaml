@@ -24,7 +24,7 @@
                        FontSize="18"
                        FontWeight="Bold"
                        VerticalAlignment="Center"
-                       Text="Unsaved overlay profile"/>
+                       Text="未保存的 Overlay 配置"/>
         </StackPanel>
 
         <TextBlock Grid.Row="1"
@@ -32,14 +32,14 @@
                    FontSize="14"
                    LineHeight="20"
                    TextWrapping="Wrap"
-                   Text="The current Overlay Items profile contains unsaved changes. Save them before closing CapFrameX?"/>
+                   Text="当前 Overlay 项目配置包含未保存的更改。关闭 CapFrameX 前是否保存？"/>
 
         <TextBlock Grid.Row="2"
                    Margin="0 10 0 0"
                    FontSize="12"
                    Opacity="0.7"
                    TextWrapping="Wrap"
-                   Text="Closing without saving permanently discards the current changes."/>
+                   Text="不保存关闭将永久丢失当前更改。"/>
 
         <StackPanel Grid.Row="3"
                     Margin="0 22 0 0"
@@ -47,20 +47,20 @@
                     HorizontalAlignment="Right">
             <Button Padding="10 0"
                     Style="{DynamicResource MaterialDesignFlatButton}"
-                    Content="Exit without saving"
+                    Content="不保存退出"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     CommandParameter="{x:Static local:UnsavedOverlayProfileDialogResult.ExitWithoutSaving}"/>
             <Button Margin="8 0 0 0"
                     Padding="10 0"
                     IsCancel="True"
                     Style="{DynamicResource MaterialDesignFlatButton}"
-                    Content="Cancel"
+                    Content="取消"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     CommandParameter="{x:Static local:UnsavedOverlayProfileDialogResult.Cancel}"/>
             <Button Margin="8 0 0 0"
                     MinWidth="112"
                     IsDefault="True"
-                    Content="Save and exit"
+                    Content="保存并退出"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                     CommandParameter="{x:Static local:UnsavedOverlayProfileDialogResult.SaveAndExit}"/>
         </StackPanel>

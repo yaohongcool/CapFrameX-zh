@@ -41,7 +41,7 @@
                             <materialDesign:PackIcon Kind="WindowMaximize"/>
                         </MenuItem.Icon>
                         <MenuItem.Header>
-                            <TextBlock Margin="-10 0 0 0" Text="Show Main Window"/>
+                            <TextBlock Margin="-10 0 0 0" Text="显示主窗口"/>
                         </MenuItem.Header>
                     </MenuItem>
                     <Separator Margin="10 0 0 0"/>
@@ -50,7 +50,7 @@
                             <materialDesign:PackIcon Kind="CloseCircle" />
                         </MenuItem.Icon>
                         <MenuItem.Header>
-                            <TextBlock Margin="-10 0 0 0" Text="Close"/>
+                            <TextBlock Margin="-10 0 0 0" Text="关闭"/>
                         </MenuItem.Header>
                     </MenuItem>
                 </ContextMenu>

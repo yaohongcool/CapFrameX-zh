@@ -15,22 +15,22 @@
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		<TextBox wpf:HintAssist.Hint="Custom CPU description" Style="{DynamicResource CxFloatingHintTextBox}"
+		<TextBox wpf:HintAssist.Hint="自定义 CPU 描述" Style="{DynamicResource CxFloatingHintTextBox}"
                  Margin="0 6 0 0" FontSize="18" Grid.Row="0" Text="{Binding CustomCpuDescription}"/>
-		<TextBox wpf:HintAssist.Hint="Custom GPU description" Style="{DynamicResource CxFloatingHintTextBox}"
+		<TextBox wpf:HintAssist.Hint="自定义 GPU 描述" Style="{DynamicResource CxFloatingHintTextBox}"
                  Margin="0 6 0 0" FontSize="18" Grid.Row="1" Text="{Binding CustomGpuDescription}"/>
-		<TextBox wpf:HintAssist.Hint="Custom comment" Style="{DynamicResource CxFloatingHintTextBox}"
+		<TextBox wpf:HintAssist.Hint="自定义备注" Style="{DynamicResource CxFloatingHintTextBox}"
                  Margin="0 6 0 0" FontSize="18" Grid.Row="2" Text="{Binding CustomComment}"/>
 		
 		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3"
                     Margin="0 16 0 0">
 			<Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding AcceptEditingDialogCommand}">
-				ACCEPT
+				确定
 			</Button>
 			<Button IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding CancelEditingDialogCommand}">
-				CANCEL
+				取消
 			</Button>
 		</StackPanel>
 	</Grid>

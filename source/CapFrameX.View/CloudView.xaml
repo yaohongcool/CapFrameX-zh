@@ -56,10 +56,10 @@
 					<DockPanel LastChildFill="False" Height="26">
 						<materialDesign:PackIcon Kind="CloudUploadOutline" Width="20" Height="20" VerticalAlignment="Center"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
-						<TextBlock Text="Record upload" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" Margin="8 0 0 0"
+						<TextBlock Text="记录上传" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" Margin="8 0 0 0"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 						<Button DockPanel.Dock="Right" VerticalAlignment="Center" Width="26" Height="26" Padding="0"
-							Style="{StaticResource MaterialDesignIconButton}" ToolTip="Remove all entries"
+							Style="{StaticResource MaterialDesignIconButton}" ToolTip="移除全部条目"
 							Command="{Binding ClearTableCommand}" IsEnabled="{Binding EnableClearAndUploadButton}"
 							Foreground="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}">
 							<materialDesign:PackIcon Kind="PlaylistRemove" Width="20" Height="20"/>
@@ -70,7 +70,7 @@
 						<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Width="450" x:Name="DragAndDropInfoTextTextBlock"
 							TextAlignment="Center" TextWrapping="Wrap" FontSize="16" Panel.ZIndex="1"
 							Visibility="{Binding ShowHelpText, Converter={StaticResource TrueToVisibleConverter}}"
-							Text="Drop items here or double click them in the record list"
+							Text="将条目拖放到此处，或在记录列表中双击条目"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
 							dragdrop:DragDrop.IsDragSource="False"
 							dragdrop:DragDrop.IsDropTarget="True"
@@ -94,10 +94,10 @@
 							Background="{DynamicResource MaterialDesign.Brush.Card.Background}"
 							Style="{StaticResource MaterialDesignDataGrid}">
 							<DataGrid.Columns>
-								<DataGridTextColumn Binding="{Binding GameName, Mode=OneWay}" Header="Game" Width="Auto" IsReadOnly="True"/>
-								<DataGridTextColumn Binding="{Binding CreationDate, Mode=OneWay}" Header="Date" Width="Auto" IsReadOnly="True"/>
-								<DataGridTextColumn Binding="{Binding CreationTime, Mode=OneWay}" Header="Time" Width="Auto" IsReadOnly="True"/>
-								<DataGridTextColumn Binding="{Binding Comment, Mode=OneWay}" Header="Comment" Width="1*" IsReadOnly="True"/>
+								<DataGridTextColumn Binding="{Binding GameName, Mode=OneWay}" Header="游戏" Width="Auto" IsReadOnly="True"/>
+								<DataGridTextColumn Binding="{Binding CreationDate, Mode=OneWay}" Header="日期" Width="Auto" IsReadOnly="True"/>
+								<DataGridTextColumn Binding="{Binding CreationTime, Mode=OneWay}" Header="时间" Width="Auto" IsReadOnly="True"/>
+								<DataGridTextColumn Binding="{Binding Comment, Mode=OneWay}" Header="备注" Width="1*" IsReadOnly="True"/>
 							</DataGrid.Columns>
 						</DataGrid>
 					</Grid>
@@ -109,32 +109,32 @@
 						</Grid.ColumnDefinitions>
 						<!--State area: description input, share link or upload progress-->
 						<Grid Grid.Column="0" Margin="0 0 12 0" VerticalAlignment="Center">
-							<TextBox x:Name="UploadDescription" Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="(Optional) Upload description"
+							<TextBox x:Name="UploadDescription" Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="（可选）上传说明"
 								Text="{Binding UploadDescription, UpdateSourceTrigger=PropertyChanged}"
 								Visibility="{Binding ShowUploadDescriptionTextBox, Converter={StaticResource TrueToVisibleConverter}}"/>
-							<TextBox Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="Download link / ID" IsReadOnly="True"
+							<TextBox Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="下载链接 / ID" IsReadOnly="True"
 								Text="{Binding ShareUrl, Mode=OneWay}" PreviewMouseDoubleClick="ShareUrlFocusHandler"
 								Visibility="{Binding ShareUrlVisible, Converter={StaticResource TrueToVisibleConverter}}"/>
 							<StackPanel Orientation="Horizontal" VerticalAlignment="Center"
 								Visibility="{Binding ShowUploadInfo, Converter={StaticResource TrueToVisibleConverter}}">
 								<ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Width="18" Height="18" IsIndeterminate="True"/>
-								<TextBlock Text="Uploading..." FontSize="14" FontWeight="Medium" Margin="10 0 0 0" VerticalAlignment="Center"
+								<TextBlock Text="正在上传…" FontSize="14" FontWeight="Medium" Margin="10 0 0 0" VerticalAlignment="Center"
 									Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 							</StackPanel>
 						</Grid>
 						<!--Actions-->
 						<Grid Grid.Column="1" VerticalAlignment="Center">
-							<Button Style="{StaticResource CloudActionButton}" Content="Upload records"
+							<Button Style="{StaticResource CloudActionButton}" Content="上传记录"
 								Command="{Binding UploadRecordsCommand}" IsEnabled="{Binding EnableClearAndUploadButton}"
 								Visibility="{Binding ShareUrlVisible, Converter={StaticResource FalseToVisibleConverter}}"
 								ToolTipService.ShowDuration="25000">
 								<Button.ToolTip>
 									<ToolTip MaxWidth="200">
-										<TextBlock Text="Upload your records to our server and receive an ID to share them" TextWrapping="Wrap"/>
+										<TextBlock Text="将记录上传到服务器并获取可分享的 ID" TextWrapping="Wrap"/>
 									</ToolTip>
 								</Button.ToolTip>
 							</Button>
-							<Button Style="{StaticResource CloudActionButton}" Content="Copy to clipboard"
+							<Button Style="{StaticResource CloudActionButton}" Content="复制到剪贴板"
 								Command="{Binding CopyURLCommand}"
 								Visibility="{Binding ShareUrlVisible, Converter={StaticResource TrueToVisibleConverter}}"/>
 						</Grid>
@@ -148,21 +148,21 @@
 					<DockPanel LastChildFill="False" Height="26">
 						<materialDesign:PackIcon Kind="CloudDownloadOutline" Width="20" Height="20" VerticalAlignment="Center"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
-						<TextBlock Text="Record download" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" Margin="8 0 0 0"
+						<TextBlock Text="记录下载" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" Margin="8 0 0 0"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 					</DockPanel>
 
-					<TextBox x:Name="IDBox" Margin="0 12 0 0" Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="Download link / ID"
+					<TextBox x:Name="IDBox" Margin="0 12 0 0" Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="下载链接 / ID"
 						Text="{Binding DownloadIDString, UpdateSourceTrigger=PropertyChanged}"/>
 
 					<DockPanel Margin="0 8 0 0">
 						<Button DockPanel.Dock="Right" VerticalAlignment="Bottom" Width="26" Height="26" Padding="0" Margin="8 0 0 0"
-							Style="{StaticResource MaterialDesignIconButton}" ToolTip="Observe download folder"
+							Style="{StaticResource MaterialDesignIconButton}" ToolTip="查看下载文件夹"
 							Command="{Binding SwitchToDownloadDirectoryCommand}"
 							Foreground="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}">
 							<materialDesign:PackIcon Kind="FolderSearchOutline" Width="20" Height="20"/>
 						</Button>
-						<TextBox Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="Download folder" IsReadOnly="True"
+						<TextBox Style="{StaticResource CloudHintTextBox}" wpf:HintAssist.Hint="下载文件夹" IsReadOnly="True"
 							Text="{Binding CloudDownloadDirectory, Mode=OneWay}" PreviewMouseDown="DownloadFolder_PreviewMouseDown"/>
 					</DockPanel>
 
@@ -174,15 +174,15 @@
 						<StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center"
 							Visibility="{Binding ShowDownloadInfo, Converter={StaticResource TrueToVisibleConverter}}">
 							<ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Width="18" Height="18" IsIndeterminate="True"/>
-							<TextBlock Text="Downloading..." FontSize="14" FontWeight="Medium" Margin="10 0 0 0" VerticalAlignment="Center"
+							<TextBlock Text="正在下载…" FontSize="14" FontWeight="Medium" Margin="10 0 0 0" VerticalAlignment="Center"
 								Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 						</StackPanel>
-						<Button Grid.Column="1" Style="{StaticResource CloudActionButton}" Content="Download records"
+						<Button Grid.Column="1" Style="{StaticResource CloudActionButton}" Content="下载记录"
 							Command="{Binding DownloadRecordsCommand}" IsEnabled="{Binding EnableDownloadButton}"
 							ToolTipService.ShowDuration="25000">
 							<Button.ToolTip>
 								<ToolTip MaxWidth="200">
-									<TextBlock Text="Download the records bound to the download ID to your specified download folder" TextWrapping="Wrap"/>
+									<TextBlock Text="将该下载 ID 对应的记录下载到指定的下载文件夹" TextWrapping="Wrap"/>
 								</ToolTip>
 							</Button.ToolTip>
 						</Button>
@@ -197,7 +197,7 @@
 				<DockPanel LastChildFill="False" Height="26">
 					<materialDesign:PackIcon Kind="PlaylistEdit" Width="20" Height="20" VerticalAlignment="Center"
 						Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
-					<TextBlock Text="Process list options" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" Margin="8 0 0 0"
+					<TextBlock Text="进程列表选项" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" Margin="8 0 0 0"
 						Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 				</DockPanel>
 
@@ -205,17 +205,17 @@
 					<Expander Background="Transparent" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
 						wpf:ExpanderAssist.HorizontalHeaderPadding="12 8 12 8">
 						<Expander.Header>
-							<TextBlock Text="What is the process list?" FontSize="13" FontWeight="Medium"/>
+							<TextBlock Text="什么是进程列表？" FontSize="13" FontWeight="Medium"/>
 						</Expander.Header>
 						<TextBlock Margin="12 0 12 12" TextWrapping="Wrap" FontSize="12"
 							Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}">
-							<Run Text="The process list contains all processes known by CapFrameX."/>
+							<Run Text="进程列表包含 CapFrameX 已知的所有进程。"/>
 							<LineBreak/><LineBreak/>
-							<Run Text="It holds information about the displayed process name and whether or not the process is ignored by the capture service."/>
+							<Run Text="其中保存了显示的进程名称，以及该进程是否被捕获服务忽略。"/>
 							<LineBreak/><LineBreak/>
-							<Run Text="On first startup your own process list is created and updated from a default list we deliver with every new version of CapFrameX that already contains many game processes with their correct names and other processes that are to be ignored."/>
+							<Run Text="首次启动时会创建你自己的进程列表，并根据每个新版本 CapFrameX 自带的默认列表更新，其中已包含许多游戏进程的正确名称以及需要忽略的其他进程。"/>
 							<LineBreak/><LineBreak/>
-							<Run Text="The options below help us to get additional entries for our default list and can also directly provide you with our latest additions."/>
+							<Run Text="以下选项可帮助我们收集默认列表的新条目，也可直接为你提供我们的最新补充。"/>
 						</TextBlock>
 					</Expander>
 				</Border>
@@ -224,20 +224,20 @@
 					<CheckBox IsChecked="{Binding ShareProcessListEntries}" ToolTipService.ShowDuration="25000">
 						<CheckBox.ToolTip>
 							<ToolTip StaysOpen="True" MaxWidth="275">
-								<TextBlock Text="Any new game name or ignored process you add will be sent to us so that we can add it to our own list" TextWrapping="Wrap"/>
+								<TextBlock Text="你新增的游戏名称或忽略进程将被发送给我们，以便加入我们的列表" TextWrapping="Wrap"/>
 							</ToolTip>
 						</CheckBox.ToolTip>
-						<TextBlock Padding="5 0 0 0" TextWrapping="WrapWithOverflow" Text="Share new entries"
+						<TextBlock Padding="5 0 0 0" TextWrapping="WrapWithOverflow" Text="分享新增条目"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 					</CheckBox>
 					<CheckBox Margin="24 0 0 0" IsChecked="{Binding AutoUpdateProcessList}" ToolTipService.ShowDuration="25000">
 						<CheckBox.ToolTip>
 							<ToolTip StaysOpen="True" MaxWidth="275">
 								<TextBlock TextWrapping="Wrap"
-									Text="On startup, your own process list will be compared to our online list and anything that's not on your list will be added.&#10;&#10;This will not affect the ignored/unignored status or the custom game name of any process that's already on your list"/>
+									Text="启动时，你自己的进程列表将与我们的在线列表比对，未收录的条目会被添加。&#10;&#10;不会影响已有进程的忽略状态或自定义游戏名称"/>
 							</ToolTip>
 						</CheckBox.ToolTip>
-						<TextBlock Padding="5 0 0 0" TextWrapping="WrapWithOverflow" Text="Auto update list"
+						<TextBlock Padding="5 0 0 0" TextWrapping="WrapWithOverflow" Text="自动更新列表"
 							Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 					</CheckBox>
 				</StackPanel>

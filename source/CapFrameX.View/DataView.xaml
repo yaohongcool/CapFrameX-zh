@@ -53,7 +53,7 @@
                        Visibility="{Binding IsChecked, Converter={StaticResource TrueToCollapsedConverter}, ElementName=ShowCustomTitleToggleButton}"
 					   Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
                 <TextBox HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource TrueToVisibleConverter}, ElementName=ShowCustomTitleToggleButton}"
-                                 Text="Type your title here..."  Height="30" MinWidth="50"                                
+                                 Text="在此输入标题..."  Height="30" MinWidth="50"                                
                                  FontWeight="Bold" FontSize="18" PreviewKeyDown="CustomTitle_PreviewKeyDown"
                                  Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
             </Grid>
@@ -84,10 +84,10 @@
 					    DialogContent="{Binding MessageDialogContent}"
 					    CloseOnClickAway="True">
 						<TabControl x:Name="GraphTab" Grid.Row="0" SelectedItem="{Binding SelectedChartItem}" FocusVisualStyle="{x:Null}" Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}">
-							<TabItem Width="80" Header="Frame Times">
+							<TabItem Width="80" Header="帧时间">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <Grid Margin="0 0 0 0" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                                        <ComboBox Width="Auto" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 10" materialDesign:HintAssist.Hint="Y-Axis scale"
+                                        <ComboBox Width="Auto" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 10" materialDesign:HintAssist.Hint="Y轴刻度"
 										          materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="240" materialDesign:HintAssist.HintOpacity=".8"
 										          ItemsSource="{Binding ChartYAxisSettings}" SelectedItem="{Binding SelecetedChartYAxisSetting}">
                                             <ComboBox.ItemTemplate>
@@ -98,7 +98,7 @@
                                         </ComboBox>
                                     </Grid>
                                     <StackPanel Margin="0 10 60 0" Orientation="Horizontal" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="{Binding ShowGpuActiveChart, Converter={StaticResource TrueToVisibleConverter}}">
-                                        <TextBlock Text="GPU-Busy Deviation: " FontSize="16"></TextBlock>
+                                        <TextBlock Text="GPU-Busy 偏差: " FontSize="16"></TextBlock>
                                         <TextBlock Text="{Binding GpuActiveDeviationPercentage}" FontSize="16"></TextBlock>
                                         <TextBlock Text="%" FontSize="16"></TextBlock>
                                     </StackPanel>
@@ -108,7 +108,7 @@
                             <TabItem Width="55" Header="FPS">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <Grid Margin="-15 0 0 1" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                                        <ComboBox Width="96" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25 8 0 8" materialDesign:HintAssist.Hint="Filter Mode"
+                                        <ComboBox Width="96" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25 8 0 8" materialDesign:HintAssist.Hint="筛选模式"
 										      materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="240" materialDesign:HintAssist.HintOpacity=".8"
                                               SelectedItem="{Binding SelectedFilterMode}" SelectedIndex="1" ItemsSource="{Binding FilterModes}">
                                             <ComboBox.ItemTemplate>
@@ -121,10 +121,10 @@
                                     <controls:FpsGraphControl DataContext="{Binding FpsGraphDataContext}" Background="{DynamicResource MaterialDesign.Brush.Card.Background}"/>
                                 </Grid>
                             </TabItem>
-                            <TabItem Width="70" Header="L-shape">
+                            <TabItem Width="70" Header="L形图">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <Grid Margin="-15 0 0 1" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                                        <ComboBox Width="96" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25 8 0 8" materialDesign:HintAssist.Hint="Metric"
+                                        <ComboBox Width="96" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25 8 0 8" materialDesign:HintAssist.Hint="指标"
 										      materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="240" materialDesign:HintAssist.HintOpacity=".8"
                                               SelectedItem="{Binding SelectedLShapeMetric}" ItemsSource="{Binding LShapeMetrics}">
                                             <ComboBox.ItemTemplate>
@@ -138,11 +138,11 @@
 										Tag="{Binding DataContext, ElementName=DataViewUserControl}" DataTooltip="{x:Null}">
                                         <lvc:CartesianChart.ContextMenu>
                                             <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                                <MenuItem Header="Copy quantiles" Command="{Binding CopyLShapeQuantilesCommand}"/>
+                                                <MenuItem Header="复制分位数" Command="{Binding CopyLShapeQuantilesCommand}"/>
                                             </ContextMenu>
                                         </lvc:CartesianChart.ContextMenu>
                                         <lvc:CartesianChart.AxisX>
-                                            <lvc:Axis Title="&#x0a;Percentiles (%)" x:Name="LShapeX" FontSize="14" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
+                                            <lvc:Axis Title="&#x0a;百分位数 (%)" x:Name="LShapeX" FontSize="14" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                                                 <lvc:Axis.Separator>
                                                     <lvc:Separator StrokeThickness="0" Step="1"/>
                                                 </lvc:Axis.Separator>
@@ -158,7 +158,7 @@
                                     </lvc:CartesianChart>
                                 </Grid>
                             </TabItem>
-                            <TabItem Width="150" Header="Frame Time Distribution">
+                            <TabItem Width="150" Header="帧时间分布">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <Grid Margin="-15 0 0 1" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                                     </Grid>
@@ -178,31 +178,31 @@
                                      Thumb.DragCompleted="RangeSlider_DragCompleted"/>
                         
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0 0 10 0" Height="25">
-                            <TextBlock Text="Real time update" Margin="40 5 3 0" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" />
+                            <TextBlock Text="实时更新" Margin="40 5 3 0" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" />
                             <CheckBox IsChecked="{Binding AnalysisRangeSliderRealTime, Mode=TwoWay}" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0 0 10 0" Height="25">
-                            <TextBlock Text="Range:" Margin="0 5 5 0" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
-                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Start (s)" HorizontalAlignment="Center" Width="45" Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}"
-                                      ToolTip="Range Slider start point" PreviewKeyDown="FirstSecondsTextBox_PreviewKeyDown" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" Text="{Binding FirstSeconds, Mode=TwoWay, StringFormat=F2, UpdateSourceTrigger=LostFocus}"
+                            <TextBlock Text="范围：" Margin="0 5 5 0" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
+                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="起点 (秒)" HorizontalAlignment="Center" Width="45" Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}"
+                                      ToolTip="范围滑块起点" PreviewKeyDown="FirstSecondsTextBox_PreviewKeyDown" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" Text="{Binding FirstSeconds, Mode=TwoWay, StringFormat=F2, UpdateSourceTrigger=LostFocus}"
                                      Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" materialDesign:HintAssist.HintOpacity=".8"/>
                             <TextBlock Text="-" Margin="3 5 3 0" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
-                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="End (s)" HorizontalAlignment="Center" Width="45" Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}"
-                                     ToolTip="Range Slider end point" PreviewKeyDown="LastSecondsTextBox_PreviewKeyDown" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" Text="{Binding LastSeconds, Mode=TwoWay, StringFormat=F2, UpdateSourceTrigger=LostFocus}"
+                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="终点 (秒)" HorizontalAlignment="Center" Width="45" Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}"
+                                     ToolTip="范围滑块终点" PreviewKeyDown="LastSecondsTextBox_PreviewKeyDown" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" Text="{Binding LastSeconds, Mode=TwoWay, StringFormat=F2, UpdateSourceTrigger=LostFocus}"
                                      Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" materialDesign:HintAssist.HintOpacity=".8"/>
                             <TextBlock Grid.Row="1"  Text="{Binding RemainingRecordingTime}" FontSize="14" Margin="10 0 0 3" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
                         </StackPanel>
 
 
                         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0 0 40 5" Height="20" >
-                            <TextBlock Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" VerticalAlignment="Center">Cut outside</TextBlock>
+                            <TextBlock Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" VerticalAlignment="Center">删除外部</TextBlock>
                             <Button Margin="10 0 15 0" Height="20" Width="20" Command="{Binding CutRecordCommand}"  Foreground="White" Background="OrangeRed" BorderBrush="OrangeRed"
-                                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"  ToolTipService.ShowDuration="25000" ToolTip="Remove data outside of range slider(red) and create a new file with the remaining data(blue)">
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"  ToolTipService.ShowDuration="25000" ToolTip="删除范围滑块之外的数据（红色）并用剩余数据（蓝色）创建新文件">
                                 <materialDesign:PackIcon Kind="ContentCut" Height="15" Width="15" />
                             </Button>
-                            <TextBlock Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" VerticalAlignment="Center">Cut inside</TextBlock>
+                            <TextBlock Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" VerticalAlignment="Center">删除内部</TextBlock>
                             <Button Margin="10 0 0 0" Height="20" Width="20" Command="{Binding CutRecordInverseCommand}"  Foreground="White" 
-                                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"  ToolTipService.ShowDuration="25000" ToolTip="Remove data inside of range slider(blue) and create a new file with the remaining data(red)">
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"  ToolTipService.ShowDuration="25000" ToolTip="删除范围滑块之内的数据（蓝色）并用剩余数据（红色）创建新文件">
                                 <materialDesign:PackIcon Kind="ContentCut" Height="15" Width="15" RenderTransformOrigin=".5,.5">
                                     <materialDesign:PackIcon.RenderTransform>
                                         <RotateTransform Angle="180"/>
@@ -232,7 +232,7 @@
 									Tag="{Binding DataContext, ElementName=DataViewUserControl}" DataTooltip="{x:Null}" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                             <lvc:CartesianChart.ContextMenu>
                                 <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                    <MenuItem Header="Copy metrics" Command="{Binding CopyStatisticalParameterCommand}"/>
+                                    <MenuItem Header="复制指标" Command="{Binding CopyStatisticalParameterCommand}"/>
                                 </ContextMenu>
                             </lvc:CartesianChart.ContextMenu>
                             <lvc:CartesianChart.AxisX>
@@ -261,7 +261,7 @@
                     <!--FPS thresholds and stuttering analysis-->
                     <Grid Grid.Column="4" Margin="5 0 0 0" >
                         <TabControl Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}" FocusVisualStyle="{x:Null}" x:Name="StatisticsTabControl" >
-                            <TabItem Width="75" Header="Stuttering">
+                            <TabItem Width="75" Header="卡顿">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <lvc:PieChart HorizontalAlignment="Left" Margin="13 0 0 0" Width="180" Height="180" Hoverable="False" Series="{Binding StutteringStatisticCollection}" 
 								        LegendLocation="Left" DataClick="Chart_OnDataClick" DataTooltip="{x:Null}" StartingRotationAngle="0">
@@ -276,7 +276,7 @@
                                             </materialDesign:PopupBox.ToggleContent>
                                             <materialDesign:PopupBox.ToolTip>
                                                 <ToolTip MaxWidth="275" Placement="Top">
-                                                    <TextBlock Text="Options for the stutter and low FPS values of the pie chart" 
+                                                    <TextBlock Text="饼图卡顿与低 FPS 值的选项" 
 										                TextWrapping="Wrap"/>
                                                 </ToolTip>
                                             </materialDesign:PopupBox.ToolTip>
@@ -286,34 +286,34 @@
                                                     <RowDefinition Height="*" />
                                                     <RowDefinition Height="*" />
                                                 </Grid.RowDefinitions>
-                                                <TextBox Grid.Row="0" materialDesign:HintAssist.Hint="Low FPS threshold" materialDesign:HintAssist.IsFloating="True" Width="100"
+                                                <TextBox Grid.Row="0" materialDesign:HintAssist.Hint="低 FPS 阈值" materialDesign:HintAssist.IsFloating="True" Width="100"
                                                     HorizontalContentAlignment="Center" Text="{Binding StutteringLowFPSThreshold}" materialDesign:HintAssist.HintOpacity=".8"
                                                     PreviewKeyDown="StutteringThreshold_PreviewKeyDown" PreviewTextInput="NumberValidationTextBox" ToolTipService.ShowDuration="25000">
                                                     <TextBox.ToolTip>
                                                         <ToolTip Width="300">
-                                                            <TextBlock Text="FPS threshold for the low FPS time.&#xA;Every frametime that isn't already counted as stutter and for which the converted FPS are lower than this threshold, is added to the low FPS time."
+                                                            <TextBlock Text="低 FPS 时间的 FPS 阈值。&#xA;凡未被记为卡顿、且换算 FPS 低于此阈值的帧时间，均计入低 FPS 时间。"
 										            TextWrapping="Wrap"/>
                                                         </ToolTip>
                                                     </TextBox.ToolTip>
                                                 </TextBox>
-                                                <TextBox Grid.Row="1" Margin="0 20 0 0" materialDesign:HintAssist.Hint="Stuttering factor" materialDesign:HintAssist.IsFloating="True" Width="100"
+                                                <TextBox Grid.Row="1" Margin="0 20 0 0" materialDesign:HintAssist.Hint="卡顿系数" materialDesign:HintAssist.IsFloating="True" Width="100"
                                                      HorizontalContentAlignment="Center" Text="{Binding StutteringFactor}" materialDesign:HintAssist.HintOpacity=".8" 
                                                      PreviewKeyDown="StutteringFactor_PreviewKeyDown" PreviewTextInput="NumberValidationTextBox" ToolTipService.ShowDuration="25000">
                                                     <TextBox.ToolTip>
                                                         <ToolTip Width="300">
-                                                            <TextBlock Text="Factor for the stuttering time.&#xA;Every frametime that is higher than the corresponding moving average frametime x factor is added to the stuttering time."
+                                                            <TextBlock Text="卡顿时间系数。&#xA;凡高于对应滑动平均帧时间 × 系数的帧时间，均计入卡顿时间。"
 										            TextWrapping="Wrap"/>
                                                         </ToolTip>
                                                     </TextBox.ToolTip>
                                                 </TextBox>
                                                 <StackPanel Grid.Row="2" Margin="0 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Vertical">
-                                                    <TextBlock Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Show in charts"/></TextBlock>
+                                                    <TextBlock Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="在图表中显示"/></TextBlock>
                                                     <ToggleButton VerticalAlignment="Center" Margin="0 8 0 0" IsChecked="{Binding ShowStutteringThresholds}"
-								                        ToolTip="Show threshold lines for stuttering and low FPS in the frametime and FPS charts"/>
+								                        ToolTip="在帧时间与 FPS 图表中显示卡顿/低 FPS 阈值线"/>/>
                                                 </StackPanel>
                                             </Grid>
                                         </materialDesign:PopupBox>
-                                        <TextBlock VerticalAlignment="Center" Text="Options" FontSize="14"/>
+                                        <TextBlock VerticalAlignment="Center" Text="选项" FontSize="14"/>
                                     </StackPanel>
                                     <Border Margin="12 0 0 15" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="{DynamicResource MaterialDesign.Brush.Foreground}" BorderThickness="1"
                                         Visibility="{Binding IsPcLatencyAvailable, Converter={StaticResource TrueToVisibleConverter}}">
@@ -321,9 +321,9 @@
                                     </Border>
                                 </Grid>
                             </TabItem>
-                            <TabItem Width="75" Header="Variances">
+                            <TabItem Width="75" Header="方差">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
-                                    <TextBlock Margin="10 3 0 0" Text="Time differences between two&#xA;consecutive frametime values"></TextBlock>
+                                    <TextBlock Margin="10 3 0 0" Text="两个连续帧时间值之间的&#xA;时间差"></TextBlock>
                                     <lvc:PieChart Margin="10 5 115 5" MaxHeight="250" Hoverable="False" Series="{Binding VarianceStatisticCollection}" 
 								        LegendLocation="Left" DataClick="Chart_OnDataClick" DataTooltip="{x:Null}" StartingRotationAngle="0">
                                         <lvc:PieChart.ChartLegend>
@@ -332,37 +332,37 @@
                                     </lvc:PieChart>
                                 </Grid>
                             </TabItem>
-                            <TabItem Width="105" x:Name="ThresholdTab" Header="FPS thresholds">
+                            <TabItem Width="105" x:Name="ThresholdTab" Header="FPS 阈值">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <RadioButton Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                                 ToolTip="Show time above or below thresholds"
+                                                 ToolTip="显示高于/低于阈值的时间"
                                                  Style="{StaticResource MaterialDesignTabRadioButton}"
                                                  Margin="0 -5 0 0"
                                                  Width="80"
                                                  MinWidth="80"
                                                  Height="25"
                                                  IsChecked="{Binding ShowThresholdTimes}"
-                                                 Content="Times"
+                                                 Content="时间"
                                                  Command="{Binding ThresholdTimesCommand}"/>
                                     <RadioButton Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                                 ToolTip="Show number of frames above or below thresholds"
+                                                 ToolTip="显示高于/低于阈值的帧数"
                                                  Style="{StaticResource MaterialDesignTabRadioButton}"
                                                  Margin="80 -5 0 0"
                                                  Width="80"
                                                  MinWidth="80"
                                                  Height="25"
                                                  IsChecked="{Binding ShowThresholdTimes, Converter={StaticResource InvertBoolConverter}}"
-                                                 Content="Counts"
+                                                 Content="帧数"
                                                  Command="{Binding ThresholdCountsCommand}"/>
                                     <Grid Margin="0 0 40 0" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Top">
                                         <ToggleButton Width="25" Height="25" Style="{StaticResource MaterialDesignActionToggleButton}" Foreground="White" 
-												  ToolTip="Toggle between absolute and relative values" IsChecked="{Binding ThresholdShowAbsoluteValues}">
+												  ToolTip="在绝对值与相对值之间切换" IsChecked="{Binding ThresholdShowAbsoluteValues}">
                                             <materialDesign:ToggleButtonAssist.OnContent>#</materialDesign:ToggleButtonAssist.OnContent> %
                                         </ToggleButton>
                                     </Grid>
                                     <Grid Margin="0 0 5 0" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Top">
                                         <ToggleButton Width="25" Height="25" Style="{StaticResource MaterialDesignActionToggleButton}" Foreground="White" 
-												  ToolTip="Change fps thresholds direction" IsChecked="{Binding ThresholdToggleButtonIsChecked}">
+												  ToolTip="切换 FPS 阈值方向" IsChecked="{Binding ThresholdToggleButtonIsChecked}">
                                             <materialDesign:ToggleButtonAssist.OnContent>
                                                 <materialDesign:PackIcon Width="25" Margin="1 0 0 0"
 												Kind="GreaterThan" />
@@ -375,7 +375,7 @@
 								                        Tag="{Binding DataContext, ElementName=DataViewUserControl}" DataTooltip="{x:Null}">
                                         <lvc:CartesianChart.ContextMenu>
                                             <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                                <MenuItem Header="Copy threshold data" Command="{Binding CopyFPSThresholdDataCommand}"/>
+                                                <MenuItem Header="复制阈值数据" Command="{Binding CopyFPSThresholdDataCommand}"/>
                                             </ContextMenu>
                                         </lvc:CartesianChart.ContextMenu>
                                         <lvc:CartesianChart.AxisX>
@@ -396,7 +396,7 @@
                                     </lvc:CartesianChart>
                                 </Grid>
                             </TabItem>
-                            <TabItem Width="75" x:Name="SensorDataTab" Header="Sensor data" IsEnabled="{Binding AdditionalGraphsEnabled}">
+                            <TabItem Width="75" x:Name="SensorDataTab" Header="传感器数据" IsEnabled="{Binding AdditionalGraphsEnabled}">
                                 <DataGrid Margin="{StaticResource CxTabContentMargin}" FontSize="13" ItemsSource="{Binding SensorReportItems}" ColumnHeaderHeight="25" SelectionUnit="FullRow"
 										CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
 										materialDesign:DataGridAssist.CellPadding="13 3 0 0" materialDesign:DataGridAssist.ColumnHeaderPadding="8 0 0 0" IsSynchronizedWithCurrentItem="False"
@@ -436,28 +436,28 @@
                                     </DataGrid.Style>
                                     <DataGrid.ContextMenu>
                                         <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                            <MenuItem Header="Copy sensor data(min, avg, max)" Command="{Binding CopySensorInfoCommand}"/>
-                                            <MenuItem Header="Copy raw sensor data" Command="{Binding CopyRawSensorInfoCommand}"/>
+                                            <MenuItem Header="复制传感器数据（最小/平均/最大）" Command="{Binding CopySensorInfoCommand}"/>
+                                            <MenuItem Header="复制原始传感器数据" Command="{Binding CopyRawSensorInfoCommand}"/>
                                         </ContextMenu>
                                     </DataGrid.ContextMenu>
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding Name, Mode=OneWay}"                                                           
-                                            Header="Sensor"       
+                                            Header="传感器"       
                                             MinWidth="175"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                                         <DataGridTextColumn Binding="{Binding MinValue, Mode=OneWay}"
-                                            Header="Min"
+                                            Header="最小"
                                             Width="72"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                                         <DataGridTextColumn Binding="{Binding AverageValue, Mode=OneWay}"
-                                            Header="Avg"
+                                            Header="平均"
                                             Width="72"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                                         <DataGridTextColumn Binding="{Binding MaxValue, Mode=OneWay}"
-                                            Header="Max"
+                                            Header="最大"
                                             Width="72"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
@@ -469,7 +469,7 @@
 
                     <Grid Grid.Column="2" x:Name="SecondSensorTab" Margin="5 0 0 0" Width="450" Tag="{Binding DataContext, ElementName=DataViewUserControl}">
                         <TabControl Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}" FocusVisualStyle="{x:Null}" >
-                            <TabItem Width="75" Header="Sensor data" IsEnabled="{Binding AdditionalGraphsEnabled}">
+                            <TabItem Width="75" Header="传感器数据" IsEnabled="{Binding AdditionalGraphsEnabled}">
                                 <DataGrid Margin="{StaticResource CxTabContentMargin}" FontSize="13" ItemsSource="{Binding SensorReportItems}" ColumnHeaderHeight="25" SelectionUnit="FullRow"
 										CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
 										materialDesign:DataGridAssist.CellPadding="13 3 0 0" materialDesign:DataGridAssist.ColumnHeaderPadding="8 0 0 0" IsSynchronizedWithCurrentItem="False"
@@ -510,28 +510,28 @@
                                     </DataGrid.Style>
                                     <DataGrid.ContextMenu>
                                         <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                            <MenuItem Header="Copy sensor data(min, avg, max)" Command="{Binding CopySensorInfoCommand}"/>
-                                            <MenuItem Header="Copy raw sensor data" Command="{Binding CopyRawSensorInfoCommand}"/>
+                                            <MenuItem Header="复制传感器数据（最小/平均/最大）" Command="{Binding CopySensorInfoCommand}"/>
+                                            <MenuItem Header="复制原始传感器数据" Command="{Binding CopyRawSensorInfoCommand}"/>
                                         </ContextMenu>
                                     </DataGrid.ContextMenu>
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding Name, Mode=OneWay}"                                                           
-                                            Header="Sensor"       
+                                            Header="传感器"       
                                             MinWidth="175"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                                         <DataGridTextColumn Binding="{Binding MinValue, Mode=OneWay}"
-                                            Header="Min"
+                                            Header="最小"
                                             Width="72"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                                         <DataGridTextColumn Binding="{Binding AverageValue, Mode=OneWay}"
-                                            Header="Average"
+                                            Header="平均值"
                                             Width="72"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                                         <DataGridTextColumn Binding="{Binding MaxValue, Mode=OneWay}"
-                                            Header="Max"
+                                            Header="最大"
                                             Width="72"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
@@ -543,37 +543,37 @@
 
                     <Grid Grid.Column="3" x:Name="SecondThresholdTab" Margin="5 0 0 0" Width="500" >
                         <TabControl Background="{DynamicResource MaterialDesign.Brush.TextBox.FilledBackground}" FocusVisualStyle="{x:Null}" >
-                            <TabItem Width="105" Header="FPS thresholds">
+                            <TabItem Width="105" Header="FPS 阈值">
                                 <Grid Margin="{StaticResource CxTabContentMargin}">
                                     <RadioButton Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                                 ToolTip="Show time above or below thresholds"
+                                                 ToolTip="显示高于/低于阈值的时间"
                                                  Style="{StaticResource MaterialDesignTabRadioButton}"
                                                  Margin="0 -5 0 0"
                                                  Width="80"
                                                  MinWidth="80"
                                                  Height="25"
                                                  IsChecked="{Binding ShowThresholdTimes}"
-                                                 Content="Times"
+                                                 Content="时间"
                                                  Command="{Binding ThresholdTimesCommand}"/>
                                     <RadioButton Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                                 ToolTip="Show number of frames above or below thresholds"
+                                                 ToolTip="显示高于/低于阈值的帧数"
                                                  Style="{StaticResource MaterialDesignTabRadioButton}"
                                                  Margin="80 -5 0 0"
                                                  Width="80"
                                                  MinWidth="80"
                                                  Height="25"
                                                  IsChecked="{Binding ShowThresholdTimes, Converter={StaticResource InvertBoolConverter}}"
-                                                 Content="Counts"
+                                                 Content="帧数"
                                                  Command="{Binding ThresholdCountsCommand}"/>
                                     <Grid Margin="0 0 40 0" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Top">
                                         <ToggleButton Width="25" Height="25" Style="{StaticResource MaterialDesignActionToggleButton}" Foreground="White" 
-												  ToolTip="Toggle between absolute and relative values" IsChecked="{Binding ThresholdShowAbsoluteValues}">
+												  ToolTip="在绝对值与相对值之间切换" IsChecked="{Binding ThresholdShowAbsoluteValues}">
                                             <materialDesign:ToggleButtonAssist.OnContent>#</materialDesign:ToggleButtonAssist.OnContent> %
                                         </ToggleButton>
                                     </Grid>
                                     <Grid Margin="0 0 5 0" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Top">
                                         <ToggleButton Width="25" Height="25" Style="{StaticResource MaterialDesignActionToggleButton}" Foreground="White" 
-												  ToolTip="Change fps thresholds direction" IsChecked="{Binding ThresholdToggleButtonIsChecked}">
+												  ToolTip="切换 FPS 阈值方向" IsChecked="{Binding ThresholdToggleButtonIsChecked}">
                                             <materialDesign:ToggleButtonAssist.OnContent>
                                                 <materialDesign:PackIcon Width="25" Margin="1 0 0 0"
 												Kind="GreaterThan" />
@@ -586,7 +586,7 @@
 								                        Tag="{Binding DataContext, ElementName=DataViewUserControl}" DataTooltip="{x:Null}">
                                         <lvc:CartesianChart.ContextMenu>
                                             <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                                <MenuItem Header="Copy threshold data" Command="{Binding CopyFPSThresholdDataCommand}"/>
+                                                <MenuItem Header="复制阈值数据" Command="{Binding CopyFPSThresholdDataCommand}"/>
                                             </ContextMenu>
                                         </lvc:CartesianChart.ContextMenu>
                                         <lvc:CartesianChart.AxisX>
@@ -623,29 +623,29 @@
                 </Grid.ColumnDefinitions>
                 <!--Statistic parameters for FPS values-->
                 <StackPanel Grid.Column="0" Margin="15 8 0 8" Orientation="Horizontal" Visibility="{Binding UseFrametimeStatisticParameters, Converter={StaticResource TrueToCollapsedConverter}}">
-                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Statistic parameter settings:"/></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="统计参数设置："/></TextBlock>
                     <materialDesign:PopupBox StaysOpen="True" ToolTipService.ShowDuration="25000"
                                              Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                         <materialDesign:PopupBox.ToolTip>
                             <ToolTip MaxWidth="275" Placement="Top">
-                                <TextBlock Text="Maximum:
-                                           &#xA;The single highest value &#xA;
-                                           &#xA;Average:
-                                           &#xA;The average of all values &#xA;
-                                           &#xA;Median:
-                                           &#xA;The middle of all values sorted from low to high &#xA;
-                                           &#xA;Minimum:
-                                           &#xA;The single lowest value &#xA;
-                                           &#xA;X% percentile:
-                                           &#xA;X% of all values are lower than this &#xA;
-                                           &#xA;X% low average:
-                                           &#xA;The average of the lowest X% of all values &#xA;
-                                           &#xA;X% low integral:
-                                           &#xA;For X% of total benchmark time, values are lower than this &#xA;
+                                <TextBlock Text="最大值:
+                                           &#xA;单个最高值 &#xA;
+                                           &#xA;平均值:
+                                           &#xA;所有值的平均值 &#xA;
+                                           &#xA;中位数:
+                                           &#xA;所有值从低到高排序后的中间值 &#xA;
+                                           &#xA;最小值:
+                                           &#xA;单个最低值 &#xA;
+                                           &#xA;X% 分位数:
+                                           &#xA;X% 的值低于此值 &#xA;
+                                           &#xA;X% Low 平均值:
+                                           &#xA;最低 X% 值的平均值 &#xA;
+                                           &#xA;X% Low 积分:
+                                           &#xA;在总基准测试时间的 X% 内，值低于此值 &#xA;
                                            &#xA;GPU-Busy:
-                                           &#xA;The time the GPU worked on a frame &#xA; 
-                                           &#xA;Adaptive STDEV:
-                                           &#xA;The standard deviation of values compared to the moving average" 
+                                           &#xA;GPU 处理一帧所用的时间 &#xA; 
+                                           &#xA;自适应标准差:
+                                           &#xA;与滑动平均值相比的值的标准差" 
 										   TextWrapping="Wrap"/>
                             </ToolTip>
                         </materialDesign:PopupBox.ToolTip>
@@ -680,45 +680,45 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="Maximum" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="最大值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="0" Grid.Column="1" IsChecked="{Binding UseMaxStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="99% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="99% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="1" Grid.Column="1" IsChecked="{Binding UseP99QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="95% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="95% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="2" Grid.Column="1" IsChecked="{Binding UseP95QuantileStatisticParameter}" />
-                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="Average" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="平均值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="3" Grid.Column="1" IsChecked="{Binding UseAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Text="GPU-Busy Average(only ms)" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Text="GPU-Busy 平均值（仅毫秒）" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="4" Grid.Column="1" IsChecked="{Binding UseGpuActiveAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Text="Median" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Text="中位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="5" Grid.Column="1" IsChecked="{Binding UseMedianStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" Text="5% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" Text="5% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="6" Grid.Column="1" IsChecked="{Binding UseP5QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="1% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="1% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="7" Grid.Column="1" IsChecked="{Binding UseP1QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="0" Text="GPU-Busy 99% percentile(only ms)" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="0" Text="GPU-Busy 99% 分位数（仅毫秒）" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="8" Grid.Column="1" IsChecked="{Binding UseGpuActiveP1QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="0.2% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="0.2% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="9" Grid.Column="1" IsChecked="{Binding UseP0Dot2QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" Text="0.1% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" Text="0.1% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="0" Grid.Column="5" IsChecked="{Binding UseP0Dot1QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="1% low average" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="1% Low 平均值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="1" Grid.Column="4" IsChecked="{Binding UseP1LowAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="3" Text="GPU-Busy 1% high average(only ms)" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="3" Text="GPU-Busy 1% High 平均值（仅毫秒）" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="2" Grid.Column="4" IsChecked="{Binding UseGpuActiveP1LowAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" Text="0.1% low average" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" Text="0.1% Low 平均值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="3" Grid.Column="4" IsChecked="{Binding UseP0Dot1LowAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" Text="1% low integral" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" Text="1% Low 积分" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="4" Grid.Column="4" IsChecked="{Binding UseP1LowIntegralStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="3" Text="0.1% low integral" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="3" Text="0.1% Low 积分" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="5" Grid.Column="4" IsChecked="{Binding UseP0Dot1LowIntegralStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="3" Text="Minimum" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="3" Text="最小值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="6" Grid.Column="4" IsChecked="{Binding UseMinStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="3" Text="Adaptive STDEV" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="3" Text="自适应标准差" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="7" Grid.Column="4" IsChecked="{Binding UseAdaptiveSTDStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="3" Text="CPU FPS/10W" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="3" Text="CPU 能效比 FPS/10W" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="8" Grid.Column="4" IsChecked="{Binding UseCpuFpsPerWattParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="3" Text="GPU FPS/10W" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="3" Text="GPU 能效比 FPS/10W" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="9" Grid.Column="4" IsChecked="{Binding UseGpuFpsPerWattParameter}"/>
                             </Grid>
                         </materialDesign:Card>
@@ -726,29 +726,29 @@
                 </StackPanel>
                 <!--Statistic parameters for Frametime values-->
                 <StackPanel Grid.Column="0" Margin="15 8 0 8" Orientation="Horizontal" Visibility="{Binding UseFrametimeStatisticParameters, Converter={StaticResource TrueToVisibleConverter}}">
-                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Statistic parameter settings:"/></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="统计参数设置："/></TextBlock>
                     <materialDesign:PopupBox StaysOpen="True" ToolTipService.ShowDuration="25000"
                                              Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                         <materialDesign:PopupBox.ToolTip>
                             <ToolTip MaxWidth="275" Placement="Top">
-                                <TextBlock Text="Maximum:
-                                           &#xA;The single highest value &#xA;
-                                           &#xA;Average:
-                                           &#xA;The average of all values &#xA;
-                                           &#xA;Median:
-                                           &#xA;The middle of all values sorted from low to high &#xA;
-                                           &#xA;Minimum:
-                                           &#xA;The single lowest value &#xA;
-                                           &#xA;X% percentile:
-                                           &#xA;X% of all values are lower than this &#xA;
-                                           &#xA;X% high average:
-                                           &#xA;The average of the highest X% of all values &#xA;
-                                           &#xA;X% low integral:
-                                           &#xA;For X% of total benchmark time, values are higher than this &#xA;
+                                <TextBlock Text="最大值:
+                                           &#xA;单个最高值 &#xA;
+                                           &#xA;平均值:
+                                           &#xA;所有值的平均值 &#xA;
+                                           &#xA;中位数:
+                                           &#xA;所有值从低到高排序后的中间值 &#xA;
+                                           &#xA;最小值:
+                                           &#xA;单个最低值 &#xA;
+                                           &#xA;X% 分位数:
+                                           &#xA;X% 的值低于此值 &#xA;
+                                           &#xA;X% High 平均值:
+                                           &#xA;最高 X% 值的平均值 &#xA;
+                                           &#xA;X% Low 积分:
+                                           &#xA;在总基准测试时间的 X% 内，值高于此值 &#xA;
                                            &#xA;GPU-Busy:
-                                           &#xA;The time the GPU worked on a frame &#xA;
-                                           &#xA;Adaptive STDEV:
-                                           &#xA;The standard deviation of values compared to the moving average" 
+                                           &#xA;GPU 处理一帧所用的时间 &#xA;
+                                           &#xA;自适应标准差:
+                                           &#xA;与滑动平均值相比的值的标准差" 
 										   TextWrapping="Wrap"/>
                             </ToolTip>
                         </materialDesign:PopupBox.ToolTip>
@@ -785,65 +785,65 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="Minimum" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="最小值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="0" Grid.Column="1" IsChecked="{Binding UseMaxStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="0.1% high integral" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="0.1% High 积分" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="1" Grid.Column="1" IsChecked="{Binding UseP0Dot1LowIntegralStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="1% high integral" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="1% High 积分" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="2" Grid.Column="1" IsChecked="{Binding UseP1LowIntegralStatisticParameter}" />
-                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="0.1% high average" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="0.1% High 平均值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="3" Grid.Column="1" IsChecked="{Binding UseP0Dot1LowAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Text="1% high average" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Text="1% High 平均值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="4" Grid.Column="1" IsChecked="{Binding UseP1LowAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Text="GPU-Busy 1% high avg.(only ms)" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Text="GPU-Busy 1% High 平均值（仅毫秒）" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="5" Grid.Column="1" IsChecked="{Binding UseGpuActiveP1LowAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" Text="99.9% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="0" Text="99.9% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="6" Grid.Column="1" IsChecked="{Binding UseP0Dot1QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="99.8% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="0" Text="99.8% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="7" Grid.Column="1" IsChecked="{Binding UseP0Dot2QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="0" Text="99% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="0" Text="99% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="8" Grid.Column="1" IsChecked="{Binding UseP1QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="GPU-Busy 99% percentile(only ms)" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="0" Text="GPU-Busy 99% 分位数（仅毫秒）" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="9" Grid.Column="1" IsChecked="{Binding UseGpuActiveP1QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" Text="95% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" Text="95% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="0" Grid.Column="5" IsChecked="{Binding UseP5QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="Average" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="平均值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="1" Grid.Column="4" IsChecked="{Binding UseAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="3" Text="GPU-Busy average(only ms)" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="3" Text="GPU-Busy 平均值（仅毫秒）" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="2" Grid.Column="4" IsChecked="{Binding UseGpuActiveAverageStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" Text="Median" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" Text="中位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="3" Grid.Column="4" IsChecked="{Binding UseMedianStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" Text="5% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" Text="5% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="4" Grid.Column="4" IsChecked="{Binding UseP95QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="3" Text="1% percentile" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="5" Grid.Column="3" Text="1% 分位数" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="5" Grid.Column="4" IsChecked="{Binding UseP99QuantileStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="3" Text="Maximum" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="6" Grid.Column="3" Text="最大值" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="6" Grid.Column="4" IsChecked="{Binding UseMinStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="3" Text="P99 |Animation Error| (only ms)" VerticalAlignment="Center"
+                                <TextBlock Margin="5" Grid.Row="7" Grid.Column="3" Text="P99 |Animation Error|（仅毫秒）" VerticalAlignment="Center"
                                            Visibility="{Binding IsAnimationErrorAvailable, Converter={StaticResource TrueToVisibleConverter}}"/>
                                 <ToggleButton Margin="5" Grid.Row="7" Grid.Column="4" IsChecked="{Binding UseAnimationErrorP99StatisticParameter}"
                                               Visibility="{Binding IsAnimationErrorAvailable, Converter={StaticResource TrueToVisibleConverter}}"/>
-                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="3" Text="Average |Animation Error| (only ms)" VerticalAlignment="Center"
+                                <TextBlock Margin="5" Grid.Row="8" Grid.Column="3" Text="平均 |Animation Error|（仅毫秒）" VerticalAlignment="Center"
                                            Visibility="{Binding IsAnimationErrorAvailable, Converter={StaticResource TrueToVisibleConverter}}"/>
                                 <ToggleButton Margin="5" Grid.Row="8" Grid.Column="4" IsChecked="{Binding UseAnimationErrorAverageStatisticParameter}"
                                               Visibility="{Binding IsAnimationErrorAvailable, Converter={StaticResource TrueToVisibleConverter}}"/>
-                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="3" Text="Adaptive STDEV" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="9" Grid.Column="3" Text="自适应标准差" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="9" Grid.Column="4" IsChecked="{Binding UseAdaptiveSTDStatisticParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="10" Grid.Column="3" Text="CPU FPS/10W" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="10" Grid.Column="3" Text="CPU 能效比 FPS/10W" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="10" Grid.Column="4" IsChecked="{Binding UseCpuFpsPerWattParameter}"/>
-                                <TextBlock Margin="5" Grid.Row="11" Grid.Column="3" Text="GPU FPS/10W" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="11" Grid.Column="3" Text="GPU 能效比 FPS/10W" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="11" Grid.Column="4" IsChecked="{Binding UseGpuFpsPerWattParameter}"/>
                             </Grid>
                         </materialDesign:Card>
                     </materialDesign:PopupBox>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Margin="30 8 0 8" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Additional graphs:"/></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="附加图表："/></TextBlock>
                     <materialDesign:PopupBox StaysOpen="True" ToolTipService.ShowDuration="25000" IsEnabled= "{Binding AdditionalGraphsEnabled}"
                                              Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                         <materialDesign:PopupBox.ToolTip>
                             <ToolTip MaxWidth="275" Placement="Top">
-                                <TextBlock Text="Show additional graphs for CPU and GPU load" 
+                                <TextBlock Text="显示 CPU 和 GPU 负载的附加图表" 
 										   TextWrapping="Wrap"/>
                             </ToolTip>
                         </materialDesign:PopupBox.ToolTip>
@@ -876,51 +876,51 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- Hardware Telemetry Group (Left) -->
-                                    <TextBlock Margin="5 5 5 2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Hardware Telemetry"
+                                    <TextBlock Margin="5 5 5 2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="硬件遥测"
                                                FontWeight="Bold" FontSize="13" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 
-                                    <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="Total CPU load" VerticalAlignment="Center"
+                                    <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="CPU 总负载" VerticalAlignment="Center"
                                                Visibility="{Binding IsCpuLoadAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
-                                    <ToggleButton Margin="5" Grid.Row="1" Grid.Column="1" IsChecked="{Binding ShowCpuLoad}" ToolTip="Show CPU usage graph"
+                                    <ToggleButton Margin="5" Grid.Row="1" Grid.Column="1" IsChecked="{Binding ShowCpuLoad}" ToolTip="显示 CPU 使用率图表"
                                                   Visibility="{Binding IsCpuLoadAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
 
-                                    <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="Max. CPU thread load" VerticalAlignment="Center"
+                                    <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="CPU 线程最大负载" VerticalAlignment="Center"
                                                Visibility="{Binding IsCpuMaxLoadAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
-                                    <ToggleButton Margin="5" Grid.Row="2" Grid.Column="1" IsChecked="{Binding ShowCpuMaxThreadLoad}" ToolTip="Show max CPU thread usage graph"
+                                    <ToggleButton Margin="5" Grid.Row="2" Grid.Column="1" IsChecked="{Binding ShowCpuMaxThreadLoad}" ToolTip="显示 CPU 线程最大使用率图表"
                                                   Visibility="{Binding IsCpuMaxLoadAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
 
-                                    <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="GPU load" VerticalAlignment="Center"
+                                    <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="GPU 负载" VerticalAlignment="Center"
                                                Visibility="{Binding IsGpuLoadAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
-                                    <ToggleButton Margin="5" Grid.Row="3" Grid.Column="1" IsChecked="{Binding ShowGpuLoad}" ToolTip="Show GPU usage graph"
+                                    <ToggleButton Margin="5" Grid.Row="3" Grid.Column="1" IsChecked="{Binding ShowGpuLoad}" ToolTip="显示 GPU 使用率图表"
                                                   Visibility="{Binding IsGpuLoadAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
 
-                                    <TextBlock Visibility="{Binding IsGpuPowerLimitAvailable, Converter={StaticResource FalseToCollapsedConverter}}" Margin="5" Grid.Row="4" Grid.Column="0" Text="GPU power limit" VerticalAlignment="Center"/>
+                                    <TextBlock Visibility="{Binding IsGpuPowerLimitAvailable, Converter={StaticResource FalseToCollapsedConverter}}" Margin="5" Grid.Row="4" Grid.Column="0" Text="GPU 功耗上限" VerticalAlignment="Center"/>
                                     <ToggleButton Visibility="{Binding IsGpuPowerLimitAvailable, Converter={StaticResource FalseToCollapsedConverter}}" Margin="5" Grid.Row="4" Grid.Column="1" IsChecked="{Binding ShowGpuPowerLimit}"
-                                                  ToolTip="Show GPU power limit" />
+                                                  ToolTip="显示 GPU 功耗上限" />
 
                                     <!-- Present Metrics Group (Right) -->
-                                    <TextBlock Margin="5 5 5 2" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Text="Present Metrics"
+                                    <TextBlock Margin="5 5 5 2" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Text="呈现指标"
                                                FontWeight="Bold" FontSize="13" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 
-                                    <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="PC Latency" VerticalAlignment="Center"
+                                    <TextBlock Margin="5" Grid.Row="1" Grid.Column="3" Text="PC 延迟" VerticalAlignment="Center"
                                                Visibility="{Binding IsPcLatencyAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
                                     <ToggleButton Margin="5" Grid.Row="1" Grid.Column="4" IsChecked="{Binding ShowPcLatency}" Visibility="{Binding IsPcLatencyAvailable, Converter={StaticResource FalseToCollapsedConverter}}"
-                                                  ToolTip="Show PC latency graph" />
+                                                  ToolTip="显示 PC 延迟图表" />
 
                                     <TextBlock Margin="5" Grid.Row="2" Grid.Column="3" Text="Animation Error" VerticalAlignment="Center"
                                                Visibility="{Binding IsAnimationErrorAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
                                     <ToggleButton Margin="5" Grid.Row="2" Grid.Column="4" IsChecked="{Binding ShowAnimationError}" Visibility="{Binding IsAnimationErrorAvailable, Converter={StaticResource FalseToCollapsedConverter}}"
-                                                  ToolTip="Show Animation Error graph" />
+                                                  ToolTip="显示 Animation Error 图表" />
 
-                                    <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" Text="GPU-Busy times" VerticalAlignment="Center"
+                                    <TextBlock Margin="5" Grid.Row="3" Grid.Column="3" Text="GPU-Busy 时间" VerticalAlignment="Center"
                                                Visibility="{Binding IsGpuActiveChartAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
                                     <ToggleButton Margin="5" Grid.Row="3" Grid.Column="4" IsChecked="{Binding ShowGpuActiveChart}" Visibility="{Binding IsGpuActiveChartAvailable, Converter={StaticResource FalseToCollapsedConverter}}"
-                                                  ToolTip="Show GPU-Busy time in frametime graphs" />
+                                                  ToolTip="在帧时间图表中显示 GPU-Busy 时间" />
 
-                                    <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" Text="CPU-Busy times" VerticalAlignment="Center"
+                                    <TextBlock Margin="5" Grid.Row="4" Grid.Column="3" Text="CPU-Busy 时间" VerticalAlignment="Center"
                                                Visibility="{Binding IsCpuActiveChartAvailable, Converter={StaticResource FalseToCollapsedConverter}}"/>
                                     <ToggleButton Margin="5" Grid.Row="4" Grid.Column="4" IsChecked="{Binding ShowCpuActiveChart}" Visibility="{Binding IsCpuActiveChartAvailable, Converter={StaticResource FalseToCollapsedConverter}}"
-                                                  ToolTip="Show CPU-Busy time in frametime graphs" />
+                                                  ToolTip="在帧时间图表中显示 CPU-Busy 时间" />
                                 </Grid>
                             </StackPanel>
                         </materialDesign:Card>
@@ -928,21 +928,21 @@
                 </StackPanel>
                 <StackPanel Grid.Column="3" HorizontalAlignment="Right" Orientation="Horizontal">
                     <StackPanel Margin="10 0 0 0" VerticalAlignment="Center"  Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Show aggregation:"/></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="显示聚合："/></TextBlock>
                         <ToggleButton VerticalAlignment="Center" Margin="10 0 0 0" IsChecked="{Binding ShowAggregationSeparators}"
-								  ToolTip="Show separator lines for the different runs within the session"/>
+								  ToolTip="显示会话内不同运行的分隔线"/>/>
                     </StackPanel>
                     <StackPanel Margin="10 0 0 0" VerticalAlignment="Center"  Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Custom title:"/></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="自定义标题："/></TextBlock>
                         <ToggleButton x:Name="ShowCustomTitleToggleButton" VerticalAlignment="Center" Margin="10 0 0 0"
-								  ToolTip="Show custom title edit box"/>
+								  ToolTip="显示自定义标题编辑框"/>/>
                     </StackPanel>
                     <StackPanel  Margin="10 0 0 0" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Remove outliers:"/></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="移除异常值："/></TextBlock>
                         <ToggleButton Margin="10 0 0 0" VerticalAlignment="Center" IsChecked="{Binding RemoveOutliers}"/>
                     </StackPanel>
                     <StackPanel Margin="10 0 5 0" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="Range slider:"/></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"><Run Text="范围滑块："/></TextBlock>
                         <ToggleButton x:Name="RangeSliderActiveToggleButton" VerticalAlignment="Center" Margin="10 0 0 0"
 									  IsChecked="{Binding IsRangeSliderActive}"/>
                     </StackPanel>
@@ -950,8 +950,8 @@
             </Grid>
             <!--System info expander-->
             <Expander Margin="0 -6 0 0" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1"
-                      Style="{StaticResource CxRailExpander}" Header="SYSTEM INFO"
-                      Tag="Show or hide the system info of this capture">
+                      Style="{StaticResource CxRailExpander}" Header="系统信息"
+                      Tag="显示或隐藏此次采集的系统信息">
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                     <ScrollViewer.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">3</sys:Double>
@@ -960,7 +960,7 @@
 										  Tag="{Binding DataContext, ElementName=DataViewUserControl}">
                         <ItemsControl.ContextMenu>
                             <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                <MenuItem Header="Copy system info" Command="{Binding CopySystemInfoCommand}"/>
+                                <MenuItem Header="复制系统信息" Command="{Binding CopySystemInfoCommand}"/>
                             </ContextMenu>
                         </ItemsControl.ContextMenu>
                         <ItemsControl.ItemTemplate>

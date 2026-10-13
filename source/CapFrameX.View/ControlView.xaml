@@ -47,7 +47,7 @@
             </Grid.RowDefinitions>
             <Border Grid.Column="0" Grid.Row="0" Visibility="{Binding HasValidSource, Converter={StaticResource FalseToVisibleConverter}}" Margin="0 0 50 0" BorderThickness="1" Panel.ZIndex="2">
                 <!--Style="{StaticResource MaterialDesignHeadlineTextBlock}"-->
-                <TextBlock Text="Observed directory missing.&#10;Open the folder chip above and select a folder." TextAlignment="Center"
+                <TextBlock Text="未找到监视目录。&#10;点击上方文件夹按钮并选择一个文件夹。" TextAlignment="Center"
                        TextWrapping="Wrap" Width="220" Margin="60 0 10 0" HorizontalAlignment="Center" VerticalAlignment="Center"
                        Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
             </Border>
@@ -58,9 +58,9 @@
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Loading records..." FontSize="16" Panel.ZIndex="1" Visibility="{Binding DirectoryLoading, Converter={StaticResource TrueToVisibleConverter}}"
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="正在加载记录..." FontSize="16" Panel.ZIndex="1" Visibility="{Binding DirectoryLoading, Converter={StaticResource TrueToVisibleConverter}}"
                         Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
-					<TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Directory is empty. Refresh directory (context menu) or start a game and then press the capture key to create records." TextWrapping="Wrap" Width="200" TextAlignment="Center" FontSize="16" Panel.ZIndex="1"
+					<TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="目录为空。请刷新目录（右键菜单）或启动游戏后按下捕获键创建记录。" TextWrapping="Wrap" Width="200" TextAlignment="Center" FontSize="16" Panel.ZIndex="1"
                         Visibility="{Binding DirectoryIsEmpty, Converter={StaticResource TrueToVisibleConverter}}"
                         Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
 
@@ -98,11 +98,11 @@
                                         <DockPanel Grid.Row="0" LastChildFill="True">
                                             <Button DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="8 0 0 4"
                                                 Width="26" Height="26" Padding="0" Style="{StaticResource MaterialDesignIconButton}"
-                                                ToolTip="Reload root folder" Command="{Binding ReloadRootFolderCommand}"
+                                                ToolTip="重新加载根文件夹" Command="{Binding ReloadRootFolderCommand}"
                                                 Foreground="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}">
                                                 <materialDesign:PackIcon Kind="Cached" Width="18" Height="18"/>
                                             </Button>
-                                            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="Root capture folder"
+                                            <TextBox IsReadOnly="True" materialDesign:HintAssist.Hint="根捕获文件夹"
 												Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
                                                 materialDesign:HintAssist.IsFloating="True" materialDesign:HintAssist.HintOpacity=".8"
                                                 Text="{Binding DataContext.RootDirectory, ElementName=ControlViewControl, Mode=OneWay}"
@@ -120,9 +120,9 @@
                                                 dragdrop:DragDrop.UseDefaultEffectDataTemplate="False" Drop="TrvStructure_Drop">
                                                 <TreeView.ContextMenu>
                                                     <ContextMenu DataContext="{Binding Path=PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                                        <MenuItem Header="Open folder" Command="{Binding OpenObservedFolderCommand}"/>
-                                                        <MenuItem Header="Delete folder" Command="{Binding DeleteFolderCommand}"/>
-                                                        <MenuItem Header="Create new subfolder" Command="{Binding OpenCreateSubFolderDialogCommand}"/>
+                                                        <MenuItem Header="打开文件夹" Command="{Binding OpenObservedFolderCommand}"/>
+                                                        <MenuItem Header="删除文件夹" Command="{Binding DeleteFolderCommand}"/>
+                                                        <MenuItem Header="新建子文件夹" Command="{Binding OpenCreateSubFolderDialogCommand}"/>
                                                     </ContextMenu>
                                                 </TreeView.ContextMenu>
                                             </TreeView>
@@ -137,7 +137,7 @@
                             Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                         <materialDesign:PopupBox.ToolTip>
                             <ToolTip Placement="Top">
-                                <TextBlock Text="Column options"/>
+                                <TextBlock Text="列选项"/>
                             </ToolTip>
                         </materialDesign:PopupBox.ToolTip>
                         <materialDesign:Card Width="Auto" Margin="0 0 0 -10">
@@ -164,11 +164,11 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="Date / Time" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="日期 / 时间" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="0" Grid.Column="1" IsChecked="{Binding ShowCreationDate}"/>
-                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="Comment" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="备注" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="1" Grid.Column="1" IsChecked="{Binding ShowComment}"/>
-                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="Aggregated" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="已聚合" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="2" Grid.Column="1" IsChecked="{Binding ShowIsAggregated}" />
                                 <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="CPU" VerticalAlignment="Center"/>
                                 <ToggleButton Margin="5" Grid.Row="3" Grid.Column="1" IsChecked="{Binding ShowCpuName}"/>
@@ -290,10 +290,10 @@
                         </DataGrid.InputBindings>
                         <DataGrid.ContextMenu>
                             <ContextMenu DataContext="{Binding Path=PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                <MenuItem Header="Delete recording file(s)" Command="{Binding DeleteRecordFileCommand}"/>
-                                <MenuItem Header="Move recording file(s)" Command="{Binding MoveRecordFileCommand}"/>
-                                <MenuItem Header="Copy/paste recording file(s)" Command="{Binding DuplicateRecordFileCommand}"/>
-								<MenuItem Header="Refresh directory" Command="{Binding RefreshDirectoryCommand}"/>
+                                <MenuItem Header="删除记录文件" Command="{Binding DeleteRecordFileCommand}"/>
+                                <MenuItem Header="移动记录文件" Command="{Binding MoveRecordFileCommand}"/>
+                                <MenuItem Header="复制/粘贴记录文件" Command="{Binding DuplicateRecordFileCommand}"/>
+								<MenuItem Header="刷新目录" Command="{Binding RefreshDirectoryCommand}"/>
 							</ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.ColumnHeaderStyle>
@@ -367,7 +367,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding GameName, Mode=OneWay}"
                                         Width="Auto"
-                                        Header="Game"
+                                        Header="游戏"
                                         FontSize="13"
                                         IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
@@ -379,7 +379,7 @@
                             <DataGridTextColumn Binding="{Binding CreationTimestamp, Mode=OneWay}"
                                         Width="Auto"
                                         MinWidth="110"
-                                        Header="Date / Time"
+                                        Header="日期 / 时间"
                                         IsReadOnly="True"
                                         Visibility="{Binding DataContext.ShowCreationDate, Source={x:Reference ColumnHeaders}, Converter={StaticResource TrueToVisibleConverter}}">
                                 <DataGridTextColumn.ElementStyle>
@@ -393,7 +393,7 @@
                             </DataGridTextColumn>
                             <DataGridTextColumn Binding="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										Width="100"
-                                        Header="Comment"
+                                        Header="备注"
                                         IsReadOnly="False"
                                         Visibility="{Binding DataContext.ShowComment, Source={x:Reference ColumnHeaders}, Converter={StaticResource TrueToVisibleConverter}}">
                                 <DataGridTextColumn.ElementStyle>
@@ -404,7 +404,7 @@
                             </DataGridTextColumn>
                             <DataGridCheckBoxColumn Binding="{Binding IsAggregated, Mode=OneWay}"
                                         Width="Auto"
-                                        Header="Aggregated"
+                                        Header="已聚合"
                                         IsReadOnly="True" 
                                         MinWidth="40"
                                         Visibility="{Binding DataContext.ShowIsAggregated, Source={x:Reference ColumnHeaders}, Converter={StaticResource TrueToVisibleConverter}}">
@@ -460,7 +460,7 @@
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="CardTextOutline" Width="18" Height="18" VerticalAlignment="Center" Margin="0 0 8 0"/>
-                        <TextBlock Text="Record Info" FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
+                        <TextBlock Text="记录信息" FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding SelectedRecordInfo.GameName, StringFormat=' — {0}'}" FontSize="14" Opacity="0.7" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Expander.Header>
@@ -485,27 +485,27 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <!--System descriptions (left column)-->
-                    <TextBox Grid.Row="0" Grid.Column="0" wpf:HintAssist.Hint="CPU description"
+                    <TextBox Grid.Row="0" Grid.Column="0" wpf:HintAssist.Hint="CPU 描述"
                              Text="{Binding CustomCpuDescription, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
-                    <TextBox Grid.Row="1" Grid.Column="0" wpf:HintAssist.Hint="GPU description"
+                    <TextBox Grid.Row="1" Grid.Column="0" wpf:HintAssist.Hint="GPU 描述"
                              Text="{Binding CustomGpuDescription, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
-                    <TextBox Grid.Row="2" Grid.Column="0" wpf:HintAssist.Hint="RAM description"
+                    <TextBox Grid.Row="2" Grid.Column="0" wpf:HintAssist.Hint="内存描述"
                              Text="{Binding CustomRamDescription, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
                     <!--Record metadata (right column)-->
-                    <TextBox Grid.Row="0" Grid.Column="2" wpf:HintAssist.Hint="Game"
+                    <TextBox Grid.Row="0" Grid.Column="2" wpf:HintAssist.Hint="游戏"
                              Text="{Binding CustomGameName, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
-                    <TextBox Grid.Row="1" Grid.Column="2" wpf:HintAssist.Hint="Resolution"
+                    <TextBox Grid.Row="1" Grid.Column="2" wpf:HintAssist.Hint="分辨率"
                              Text="{Binding CustomResolution, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
-                    <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" wpf:HintAssist.Hint="Comment"
+                    <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" wpf:HintAssist.Hint="备注"
                              Text="{Binding CustomComment, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
                     <!--Actions-->
                     <Button Grid.Row="3" Grid.Column="2" Margin="0 12 0 0" MinWidth="120" HorizontalAlignment="Right"
                             Style="{DynamicResource MaterialDesignRaisedButton}" Command="{Binding AcceptEditingDialogCommand}"
-                            ToolTip="Apply the descriptions to the selected record(s). Enter inside a field saves as well.">
+                            ToolTip="将描述应用到所选记录。在输入框中按回车同样保存。">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ContentSave" Width="16" Height="16" VerticalAlignment="Center" Margin="0 0 8 0"
                                                      Foreground="White"/>
-                            <TextBlock Text="SAVE" VerticalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="保存" VerticalAlignment="Center" Foreground="White"/>
                         </StackPanel>
                     </Button>
                 </Grid>

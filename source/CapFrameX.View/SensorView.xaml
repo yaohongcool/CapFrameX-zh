@@ -48,7 +48,7 @@
         <Border Style="{StaticResource SectionCard}" Grid.Row="1" Grid.Column="0" >
             <DockPanel Margin="0 10 0 10">
                 <Grid DockPanel.Dock="Top">
-                    <TextBlock Margin="15 0 0 10" HorizontalAlignment="Left" Text="Sensor items" FontSize="16" VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
+                    <TextBlock Margin="15 0 0 10" HorizontalAlignment="Left" Text="Sensor 项目" FontSize="16" VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
                 </Grid>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -135,8 +135,8 @@
                             <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}"
                                                 Header="Sensor" IsReadOnly="True" MinWidth="185"/>
                             <DataGridTextColumn Binding="{Binding SensorType, Mode=TwoWay}"
-                                                Header="Type" IsReadOnly="True" MinWidth="100"/>
-                            <DataGridCheckBoxColumn Binding="{Binding UseForLogging, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Use for logging" Width="100">
+                                                Header="类型" IsReadOnly="True" MinWidth="100"/>
+                            <DataGridCheckBoxColumn Binding="{Binding UseForLogging, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="用于记录" Width="100">
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <!--<Setter Property="IsEnabled" Value="{Binding Path=UseSensorLogging, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />-->
@@ -166,15 +166,15 @@
                                 <CheckBox IsChecked="{Binding UseSensorLogging, Mode=TwoWay}">
                                     <CheckBox.ToolTip>
                                         <ToolTip MaxWidth="250">
-                                            <TextBlock Text="Logs selected sensor values during a capture"                            
+                                            <TextBlock Text="在捕获期间记录所选 Sensor 的数值"
 										   TextWrapping="Wrap"/>
                                         </ToolTip>
                                     </CheckBox.ToolTip>
                                 </CheckBox>
-                                <TextBlock Margin="10 0 12 0" VerticalAlignment="Center" Text="Log sensors" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
+                                <TextBlock Margin="10 0 12 0" VerticalAlignment="Center" Text="记录 Sensor" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"/>
                             </StackPanel>
                             <ComboBox Margin="15 0 0 0"
-					              materialDesign:HintAssist.Hint="Sensor polling [ms]" materialDesign:HintAssist.HintOpacity=".8"
+					              materialDesign:HintAssist.Hint="Sensor 轮询 [ms]" materialDesign:HintAssist.HintOpacity=".8"
 					              materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="200" Width="110"
 					              MouseLeave="LoggingPeriodComboBox_MouseLeave" FontSize="14"
 					              ItemsSource="{Binding Path=LoggingPeriodItemsSource}"
@@ -187,13 +187,13 @@
                                     </Binding>
                                 </ComboBox.Text>
                                 <ComboBox.ToolTip>
-                                    Polling period [ms] for sensor logging
+                                    Sensor 记录的轮询周期 [ms]
                                 </ComboBox.ToolTip>
                             </ComboBox>
                             <!--The row is centred in a 460px card and must not grow past it, or the last button is cut off.-->
                             <StackPanel Orientation="Horizontal">
                                 <Button Width="28" Height="28" Margin="16 10 0 0" Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
-                                ToolTip="Reset to defaults" Command="{Binding ResetToDefaultCommand}" IsEnabled="{Binding Path=UseSensorLogging}"
+                                ToolTip="恢复默认设置" Command="{Binding ResetToDefaultCommand}" IsEnabled="{Binding Path=UseSensorLogging}"
                                 materialDesign:RippleAssist.Feedback="#DD000000">
                                     <materialDesign:PackIcon Kind="Restore" Height="22" Width="22" />
                                 </Button>
@@ -204,23 +204,23 @@
                                     <Button.ToolTip>
                                         <ToolTip>
                                             <TextBlock Width="275" TextWrapping="Wrap"
-                                                       Text="Resync Windows performance monitor when you have issues with 0 memory counter. Restart CX after execution."/>
+                                                       Text="当内存计数器为 0 时重新同步 Windows 性能监视器。执行后请重启 CapFrameX。"/>
                                         </ToolTip>
                                     </Button.ToolTip>
                                 </Button>
                                 <Button Width="28" Height="28" Margin="8 10 0 0" Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
-                                    ToolTip="Open configuration folder" Command="{Binding OpenConfigFolderCommand}"
+                                    ToolTip="打开配置文件夹" Command="{Binding OpenConfigFolderCommand}"
                                     materialDesign:RippleAssist.Feedback="#DD000000">
                                     <materialDesign:PackIcon Kind="Folder" Height="22" Width="22" />
                                 </Button>
                                 <Button Width="28" Height="28" Margin="8 10 0 0" Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
-                                    ToolTip="Save selected sensors for logging" Command="{Binding SaveConfigCommand}" IsEnabled="{Binding SaveButtonIsEnable}"
+                                    ToolTip="保存所选 Sensor 以用于记录" Command="{Binding SaveConfigCommand}" IsEnabled="{Binding SaveButtonIsEnable}"
                                     materialDesign:RippleAssist.Feedback="#DD000000">
                                     <materialDesign:PackIcon Kind="ContentSaveSettings" Height="22" Width="22" />
                                 </Button>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="5 0 0 0" ToolTip="Check or uncheck groups of sensors" ToolTipService.Placement="Top">
+                        <StackPanel Orientation="Horizontal" Margin="5 0 0 0" ToolTip="勾选或取消勾选 Sensor 分组" ToolTipService.Placement="Top">
                             <materialDesign:PopupBox StaysOpen="True" IsEnabled="{Binding Path=UseSensorLogging}" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
                                 <materialDesign:Card Width="220" Margin="0 0 0 -10">
                                     <StackPanel>
@@ -247,60 +247,60 @@
                                                 <ColumnDefinition Width="1*"/>
                                                 <ColumnDefinition Width="1*"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="CPU basics" VerticalAlignment="Center"/>
+<TextBlock Margin="5" Grid.Row="0" Grid.Column="0" Text="CPU 基础项" VerticalAlignment="Center"/>
                                             <Button Margin="5" Grid.Row="0" Grid.Column="1" Command="{Binding Path=SensorSubModelGroupControl.CheckCpuBasics}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"  
-                                                    Width="20" Height="20" ToolTip="Check CPU basics" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="勾选 CPU 基础项" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Done" Height="15" Width="15" />
                                             </Button>
                                             <Button Margin="5" Grid.Row="0" Grid.Column="2" Command="{Binding Path=SensorSubModelGroupControl.UncheckCpuBasics}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Uncheck CPU basics" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="取消勾选 CPU 基础项" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Remove"  Height="15" Width="15" />
                                             </Button>
 
-                                            <TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="GPU basics" VerticalAlignment="Center"/>
+<TextBlock Margin="5" Grid.Row="1" Grid.Column="0" Text="GPU 基础项" VerticalAlignment="Center"/>
                                             <Button Margin="5" Grid.Row="1" Grid.Column="1" Command="{Binding Path=SensorSubModelGroupControl.CheckGpuBasics}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Check GPU basics" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="勾选 GPU 基础项" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Done" Height="15" Width="15" />
                                             </Button>
                                             <Button Margin="5" Grid.Row="1" Grid.Column="2" Command="{Binding Path=SensorSubModelGroupControl.UncheckGpuBasics}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Uncheck GPU basics" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="取消勾选 GPU 基础项" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Remove" Height="20" Width="15" />
                                             </Button>
                                             
-                                            <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="CPU thread loads" VerticalAlignment="Center"/>
+<TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="CPU 线程负载" VerticalAlignment="Center"/>
                                             <Button Margin="5" Grid.Row="2" Grid.Column="1" Command="{Binding Path=SensorSubModelGroupControl.CheckCpuThreadLoads}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Check CPU thread loads" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="勾选 CPU 线程负载" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Done" Height="15" Width="15" />
                                             </Button>
                                             <Button Margin="5" Grid.Row="2" Grid.Column="2" Command="{Binding Path=SensorSubModelGroupControl.UncheckCpuThreadLoads}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Uncheck CPU thread loads" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="取消勾选 CPU 线程负载" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Remove" Height="15" Width="15" />
                                             </Button>
 
-                                            <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="CPU core clocks" VerticalAlignment="Center"/>
+<TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="CPU 核心时钟" VerticalAlignment="Center"/>
                                             <Button Margin="5" Grid.Row="3" Grid.Column="1" Command="{Binding Path=SensorSubModelGroupControl.CheckCpuCoreClocks}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Check CPU core clocks" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="勾选 CPU 核心时钟" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Done" Height="15" Width="15" />
                                             </Button>
                                             <Button Margin="5" Grid.Row="3" Grid.Column="2" Command="{Binding Path=SensorSubModelGroupControl.UncheckCpuCoreClocks}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Uncheck CPU core clocks" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="取消勾选 CPU 核心时钟" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Remove" Height="15" Width="15" />
                                             </Button>
 
-                                            <TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Text="All sensors" VerticalAlignment="Center"/>
+<TextBlock Margin="5" Grid.Row="4" Grid.Column="0" Text="全部 Sensor" VerticalAlignment="Center"/>
                                             <Button Margin="5" Grid.Row="4" Grid.Column="1" Command="{Binding Path=SensorSubModelGroupControl.CheckAll}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Check all sensors" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="勾选全部 Sensor" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Done" Height="15" Width="15" />
                                             </Button>
                                             <Button Margin="5" Grid.Row="4" Grid.Column="2" Command="{Binding Path=SensorSubModelGroupControl.UncheckAll}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
-                                                    Width="20" Height="20" ToolTip="Uncheck all sensors" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
+                                                     Width="20" Height="20" ToolTip="取消勾选全部 Sensor" materialDesign:RippleAssist.Feedback="#DD000000" Foreground="White">
                                                 <materialDesign:PackIcon Kind="Remove" Height="15" Width="15" />
                                             </Button>
                                         </Grid>
                                     </StackPanel>
                                 </materialDesign:Card>
                             </materialDesign:PopupBox>
-                            <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">Group control</TextBlock>
+                            <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">分组控制</TextBlock>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
@@ -328,8 +328,8 @@
                                 Background="{DynamicResource MaterialDesign.Brush.Card.Background}">
                         <DataGrid.ContextMenu>
                             <ContextMenu DataContext="{Binding Path=PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                <MenuItem Header="Copy sensor data(min, avg, max)" Command="{Binding CopySensorInfoCommand}"/>
-                                <MenuItem Header="Copy raw sensor data" Command="{Binding CopyRawSensorInfoCommand}" IsEnabled="{Binding CopyRawSensorsEnable}"/>
+                                <MenuItem Header="复制 Sensor 数据（最小值、平均值、最大值）" Command="{Binding CopySensorInfoCommand}"/>
+                                <MenuItem Header="复制原始 Sensor 数据" Command="{Binding CopyRawSensorInfoCommand}" IsEnabled="{Binding CopyRawSensorsEnable}"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Resources>
@@ -369,17 +369,17 @@
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                             <DataGridTextColumn Binding="{Binding MinValue, Mode=OneWay}"
-                                            Header="Min"
+                                            Header="最小值"
                                             MinWidth="75"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                             <DataGridTextColumn Binding="{Binding AverageValue, Mode=OneWay}"
-                                            Header="Avg"
+                                            Header="平均值"
                                             MinWidth="75"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
                             <DataGridTextColumn Binding="{Binding MaxValue, Mode=OneWay}"
-                                            Header="Max"
+                                            Header="最大值"
                                             MinWidth="75"
                                             IsReadOnly="True"
                                             CellStyle="{StaticResource CellStyle}"/>
@@ -392,13 +392,13 @@
                         <Button.ToolTip>
                             <ToolTip MaxWidth="250">
                                 <TextBlock
-                             Text="Show sensor statistics for all entries currently selected in the record list." 
+                             Text="显示记录列表中当前所选条目的 Sensor 统计信息。"
                              TextWrapping="Wrap"/>
                             </ToolTip>
                         </Button.ToolTip>
                     </Button>
                     <ComboBox Grid.Row="1" Margin="10 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Right"
-					              materialDesign:HintAssist.Hint="Evaluation"
+					              materialDesign:HintAssist.Hint="评估方式"
                                   materialDesign:HintAssist.HintOpacity=".8"
 					              materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="200" Width="105" Height="40"
                                   ToolTipService.ShowDuration="25000"
@@ -412,10 +412,10 @@
                             </Binding>
                         </ComboBox.Text>
                         <ComboBox.ToolTip>
-                            <TextBlock Text="Select the method for evaluating multiple entries.&#10;
-                                           &#10;Aggregate: Generate the report based on the combined sensor data of all entries.&#10;
-                                           &#10;Average: Generate the report based on the average of each individual report.
-                                           &#10;(only includes sensors that are present in all entries)"
+                            <TextBlock Text="选择评估多个条目的方式。&#10;
+                                           &#10;聚合：基于全部条目的合并 Sensor 数据生成报告。&#10;
+                                           &#10;平均值：基于每个单独报告的平均值生成报告。
+                                           &#10;（仅包含全部条目中都存在的 Sensor）"
                                     TextWrapping="Wrap">
 
                             </TextBlock>

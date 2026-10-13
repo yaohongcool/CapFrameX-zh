@@ -78,7 +78,7 @@
             <!-- Status row -->
             <Grid Grid.Row="1" Margin="0,0,0,10">
                 <TextBlock x:Name="StatusText"
-                           Text="Starting..."
+                           Text="正在启动..."
                            Foreground="#8A8F9C" FontSize="12"
                            HorizontalAlignment="Left" VerticalAlignment="Center" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">

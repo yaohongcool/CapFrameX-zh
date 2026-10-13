@@ -115,14 +115,14 @@
 	</UserControl.Resources>
 	<Grid>
 		<StackPanel Panel.ZIndex="1" Orientation="Horizontal" Visibility="{Binding ShowNotification, Converter={StaticResource FalseToCollapsedConverter}}" Background="Orange">
-			<TextBlock VerticalAlignment="Center" Margin="10" FontWeight="Bold" FontSize="18" Text="Important Message:"></TextBlock>
+			<TextBlock VerticalAlignment="Center" Margin="10" FontWeight="Bold" FontSize="18" Text="重要消息："></TextBlock>
 			<controls:MarkupTextBlock VerticalAlignment="Center" Margin="5" FontWeight="Bold" FontSize="14" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="60"
                 Width="{Binding ElementName=ColorbarViewName, Path=ActualWidth, Converter={StaticResource AddValueConverter}}"
                 MarkupText="{Binding AppNotification}" Hyperlink.RequestNavigate="Hyperlink_RequestNavigate">
 			</controls:MarkupTextBlock>
 			<Button Margin="10" BorderThickness="0" Width="100" Height="25"
-			    Command="{Binding CloseNotificationCommand}" Foreground="White" Background="LimeGreen" ToolTip="Close this message and not show it again until there's a new one">
-				<TextBlock Text="Close" TextWrapping="Wrap" TextAlignment="Center"/>
+			    Command="{Binding CloseNotificationCommand}" Foreground="White" Background="LimeGreen" ToolTip="关闭此消息，在有新消息前不再显示">
+				<TextBlock Text="关闭" TextWrapping="Wrap" TextAlignment="Center"/>
 			</Button>
 		</StackPanel>
 		<materialDesign:ColorZone Mode="PrimaryMid" Foreground="White" Background="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}">
@@ -217,7 +217,7 @@
 						<Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
 						        VerticalAlignment="Center"
 						        HorizontalAlignment="Right"
-						        ToolTip="Take a screenshot"
+						        ToolTip="截图"
 						        materialDesign:RippleAssist.Feedback="#DD000000"
                                 Background="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}"
                                 BorderBrush="Transparent"
@@ -231,19 +231,19 @@
                                 Background="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}" Foreground="White"
                                 BorderBrush="Transparent"
                                 HorizontalContentAlignment="Center" Padding="0"
-                                Content="Save" Click="SaveScreenShotButton_Click"/>
+                                 Content="保存" Click="SaveScreenShotButton_Click"/>
 						<Button Width="70" Height="40" VerticalContentAlignment="Center"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 Background="{DynamicResource MaterialDesign.Brush.ToolBar.Item.Background}" Foreground="White" 
                                 BorderBrush="Transparent"
                                 HorizontalContentAlignment="Center" Padding="0"
-                                Content="Copy" Click="CopyScreenShotButton_Click"/>
+                                 Content="复制" Click="CopyScreenShotButton_Click"/>
 					</UniformGrid>
 				</materialDesign:PopupBox>
 
 				<Button Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                             Margin="0 0 187 0"
-						    ToolTip="Login"
+						    ToolTip="登录"
                             HorizontalAlignment="Right"
 						    materialDesign:RippleAssist.Feedback="#DD000000"
 						    Width="32" Height="32" Click="Login_Click"
@@ -254,7 +254,7 @@
 
 				<Button Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                             Margin="0 0 190 0"
-						    ToolTip="Logout"
+						    ToolTip="注销"
                             HorizontalAlignment="Right"
 						    materialDesign:RippleAssist.Feedback="#DD000000"
 						    Width="32" Height="32" Click="Logout_Click"
@@ -303,11 +303,11 @@
 																 VerticalAlignment="Center"
 																 Foreground="{DynamicResource MaterialDesign.Brush.Primary}"/>
 											<TextBlock Margin="9 0 0 0" FontSize="18" FontWeight="SemiBold"
-													   VerticalAlignment="Center" Text="Settings"/>
+													   VerticalAlignment="Center" Text="设置"/>
 										</StackPanel>
 										<TextBlock Margin="0 6 0 0" FontSize="11" TextWrapping="Wrap"
 												   Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
-												   Text="Configure CapFrameX to match your workflow."/>
+												   Text="按你的工作流配置 CapFrameX。"/>
 									</StackPanel>
 
 									<StackPanel Grid.Row="1">
@@ -315,49 +315,49 @@
 													 IsChecked="{Binding OptionsViewSelected}">
 											<StackPanel Orientation="Horizontal">
 												<materialDesign:PackIcon Kind="Tune" Width="19" Height="19" VerticalAlignment="Center"/>
-												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="Options"/>
+												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="选项"/>
 											</StackPanel>
 										</RadioButton>
 										<RadioButton GroupName="SettingsView" Style="{StaticResource SettingsNavigationButton}"
 													 IsChecked="{Binding HardwareViewSelected}">
 											<StackPanel Orientation="Horizontal">
 												<materialDesign:PackIcon Kind="Gpu" Width="19" Height="19" VerticalAlignment="Center"/>
-												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="Hardware"/>
+												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="硬件"/>
 											</StackPanel>
 										</RadioButton>
 										<RadioButton GroupName="SettingsView" Style="{StaticResource SettingsNavigationButton}"
 													 IsChecked="{Binding AppViewSelected}">
 											<StackPanel Orientation="Horizontal">
 												<materialDesign:PackIcon Kind="ApplicationOutline" Width="19" Height="19" VerticalAlignment="Center"/>
-												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="Application"/>
+												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="应用"/>
 											</StackPanel>
 										</RadioButton>
 										<RadioButton GroupName="SettingsView" Style="{StaticResource SettingsNavigationButton}"
 													 IsChecked="{Binding RemoteViewSelected}">
 											<StackPanel Orientation="Horizontal">
 												<materialDesign:PackIcon Kind="CloudUploadOutline" Width="19" Height="19" VerticalAlignment="Center"/>
-												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="Remote"/>
+												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="远程"/>
 											</StackPanel>
 										</RadioButton>
 										<RadioButton GroupName="SettingsView" Style="{StaticResource SettingsNavigationButton}"
 													 IsChecked="{Binding UpdateViewSelected}">
 											<StackPanel Orientation="Horizontal">
 												<materialDesign:PackIcon Kind="Update" Width="19" Height="19" VerticalAlignment="Center"/>
-												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="Update"/>
+												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="更新"/>
 											</StackPanel>
 										</RadioButton>
 										<RadioButton GroupName="SettingsView" Style="{StaticResource SettingsNavigationButton}"
 													 IsChecked="{Binding HelpViewSelected}">
 											<StackPanel Orientation="Horizontal">
 												<materialDesign:PackIcon Kind="Information" Width="19" Height="19" VerticalAlignment="Center"/>
-												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="Help"/>
+												<TextBlock Margin="11 0 0 0" VerticalAlignment="Center" Text="帮助"/>
 											</StackPanel>
 										</RadioButton>
 									</StackPanel>
 
 									<TextBlock Grid.Row="2" Margin="4 0 4 4" FontSize="10" TextWrapping="Wrap"
 											   Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
-											   Text="Settings marked in their description may require a restart."/>
+											   Text="说明中标注的设置可能需要重启。"/>
 								</Grid>
 							</Border>
 
@@ -366,14 +366,14 @@
 								<DataTemplate x:Name="OptionsDataTemplate" x:Key="OptionsContent">
 									<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 										<StackPanel Margin="24 20 18 22">
-											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="Options"/>
+											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="选项"/>
 											<TextBlock Style="{StaticResource SettingsPageDescription}"
-													   Text="Configure charts, capture metrics and file format, latency tracking and screenshots."/>
+													   Text="配置图表、捕获指标与文件格式、延迟跟踪和截图。"/>
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Charts and export"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Control how FPS values are calculated, displayed and exported."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="图表与导出"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="控制 FPS 值的计算、显示与导出方式。"/>
 											<Separator Margin="0 12 0 10" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
 											<Grid>
 												<Grid.ColumnDefinitions>
@@ -384,12 +384,12 @@
 													<ColumnDefinition Width="1.25*"/>
 												</Grid.ColumnDefinitions>
 												<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="FPS graph filter"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Average time window in milliseconds."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="FPS 图表滤波"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="平均时间窗口（毫秒）。"/>
 															<ComboBox Margin="0 9 0 0" Height="42" MaxDropDownHeight="140"
-																	  materialDesign:HintAssist.Hint="Time window (ms)"
+																	  materialDesign:HintAssist.Hint="时间窗口 (ms)"
 																	  materialDesign:HintAssist.IsFloating="True"
-																	  ToolTip="Sets the time window for the interval of the average FPS graphs"
+																	  ToolTip="设置平均 FPS 图表区间的时间窗口"
 																	  ItemsSource="{Binding Path=DataContext.AverageTimeWindows, ElementName=ColorbarViewName}">
 																<ComboBox.Text>
 																	<Binding Path="SelectedAverageTimeWindow" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
@@ -397,21 +397,21 @@
 															</ComboBox>
 														</StackPanel>
 												<StackPanel Grid.Column="2">
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="FPS decimals"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Displayed decimal places."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="FPS 小数位"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="显示的小数位数。"/>
 															<ComboBox Margin="0 9 0 0" Height="42" MaxDropDownHeight="140"
-																	  materialDesign:HintAssist.Hint="Decimal places"
+																	  materialDesign:HintAssist.Hint="小数位数"
 																	  materialDesign:HintAssist.IsFloating="True"
-																	  ToolTip="Sets the number of decimal points for displayed FPS values"
+																	  ToolTip="设置显示的 FPS 值的小数位数"
 																	  ItemsSource="{Binding Path=DataContext.RoundingDigits, ElementName=ColorbarViewName}">
 																<ComboBox.Text>
 																	<Binding Path="FpsValuesRoundingDigits" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
 																</ComboBox.Text>
 															</ComboBox>
 														</StackPanel>
-												<StackPanel Grid.Column="4" ToolTip="Select resolution for graph export (via context menu)">
-													<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Graph export resolution"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Pixel dimensions used by graph export."/>
+												<StackPanel Grid.Column="4" ToolTip="选择图表导出分辨率（通过右键菜单）">
+													<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="图表导出分辨率"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="图表导出使用的像素尺寸。"/>
 													<Grid Margin="0 9 0 0">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
@@ -420,7 +420,7 @@
 														</Grid.ColumnDefinitions>
 														<TextBox Height="42" MinWidth="92" HorizontalContentAlignment="Center"
 																 Text="{Binding HorizontalGraphExportRes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-																 materialDesign:HintAssist.Hint="Width"
+																 materialDesign:HintAssist.Hint="宽度"
 																 Style="{DynamicResource CxFloatingHintTextBox}"
 																 PreviewKeyDown="ResolutionTextBox_PreviewKeyDown" MouseLeave="TextBox_MouseLeave"
 																 PreviewTextInput="NumberValidationTextBox"/>
@@ -428,7 +428,7 @@
 																   Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"/>
 														<TextBox Grid.Column="2" Height="42" MinWidth="92" HorizontalContentAlignment="Center"
 																 Text="{Binding VerticalGraphExportRes, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-																 materialDesign:HintAssist.Hint="Height"
+																 materialDesign:HintAssist.Hint="高度"
 																 Style="{DynamicResource CxFloatingHintTextBox}"
 																 PreviewKeyDown="ResolutionTextBox_PreviewKeyDown" MouseLeave="TextBox_MouseLeave"
 																 PreviewTextInput="NumberValidationTextBox"/>
@@ -440,8 +440,8 @@
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Capture metrics"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Choose the timing data used for performance analysis and how captures are stored."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="捕获指标"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="选择性能分析使用的时间数据以及捕获的存储方式。"/>
 													<Separator Margin="0 12 0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
 													<Grid Margin="0 8" ToolTipService.ShowDuration="25000">
 														<Grid.ColumnDefinitions>
@@ -449,14 +449,14 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Use MsBetweenDisplayChange metrics"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="More closely reflects displayed frames and is recommended with Frame Generation."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="使用 MsBetweenDisplayChange 指标"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="更贴近实际显示帧，建议在帧生成开启时使用。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}"
 																  IsChecked="{Binding UseDisplayChangeMetrics, Mode=TwoWay}">
 															<CheckBox.ToolTip>
 																<ToolTip MaxWidth="400">
-																	<TextBlock TextWrapping="Wrap" Text="Use &quot;MsBetweenDisplayChange&quot; to calculate performance metrics. This option provides more consistent metrics when using Frame Generation.&#10;MsBetweenDisplayChange is closer to the user experience."/>
+																	<TextBlock TextWrapping="Wrap" Text="使用 &quot;MsBetweenDisplayChange&quot; 计算性能指标。在使用帧生成时该选项的指标更稳定。&#10;MsBetweenDisplayChange 更接近用户实际体验。"/>
 																</ToolTip>
 															</CheckBox.ToolTip>
 														</CheckBox>
@@ -468,14 +468,14 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Use PC Latency"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Adds PresentMon's MsPCLatency column to capture data. Capture service restart required."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="使用 PC Latency"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="在捕获数据中增加 PresentMon 的 MsPCLatency 列。需要重启捕获服务。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}"
 																  IsChecked="{Binding UsePcLatency, Mode=TwoWay}">
 															<CheckBox.ToolTip>
 																<ToolTip MaxWidth="400">
-																	<TextBlock TextWrapping="Wrap" Text="Enable PC Latency tracking via PresentMon. When enabled, the &quot;MsPCLatency&quot; column will be available in the capture data.&#10;Requires restart of the capture service to take effect."/>
+																	<TextBlock TextWrapping="Wrap" Text="通过 PresentMon 启用 PC Latency 跟踪。启用后捕获数据中将包含 &quot;MsPCLatency&quot; 列。&#10;需要重启捕获服务才能生效。"/>
 																</ToolTip>
 															</CheckBox.ToolTip>
 														</CheckBox>
@@ -487,12 +487,12 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel VerticalAlignment="Center">
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="PresentMon event buffer"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Size of PresentMon's present event ring buffer. Restarts the capture service."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="PresentMon 事件缓冲"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="PresentMon 提交事件环形缓冲的大小。会重启捕获服务。"/>
 														</StackPanel>
 														<ComboBox Grid.Column="1" Width="130" Height="42" MaxDropDownHeight="140"
 																  VerticalAlignment="Center"
-																  materialDesign:HintAssist.Hint="Events"
+																  materialDesign:HintAssist.Hint="事件数"
 																  materialDesign:HintAssist.IsFloating="True"
 																  IsEnabled="{Binding IsCaptureServiceReady}"
 																  ToolTipService.ShowOnDisabled="True"
@@ -500,7 +500,7 @@
 																  SelectedItem="{Binding PresentMonCircularBufferSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 															<ComboBox.ToolTip>
 																<ToolTip MaxWidth="400">
-																	<TextBlock TextWrapping="Wrap" Text="Number of present events PresentMon keeps in its circular buffer (--set_circular_buffer_size). Raise it if frames are lost at very high frame rates; PresentMon's own default is 2048.&#10;Changing this restarts the capture service, which takes a moment. The setting is locked while the service is down or a capture is running."/>
+																	<TextBlock TextWrapping="Wrap" Text="PresentMon 在环形缓冲中保留的提交事件数量 (--set_circular_buffer_size)。在极高帧率下丢帧时可调大；PresentMon 自身默认值为 2048。&#10;修改后会重启捕获服务，需要一点时间。服务不可用或正在捕获时该设置被锁定。"/>
 																</ToolTip>
 															</ComboBox.ToolTip>
 														</ComboBox>
@@ -512,19 +512,19 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel VerticalAlignment="Center">
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Capture file mode"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="JSON + CSV additionally saves all PresentMon data of each record as a CSV file."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="捕获文件模式"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="JSON + CSV 会为每条记录额外保存包含全部 PresentMon 数据的 CSV 文件。"/>
 														</StackPanel>
 														<ComboBox Grid.Column="1" Width="130" Height="42" MaxDropDownHeight="140"
 																  VerticalAlignment="Center"
-																  materialDesign:HintAssist.Hint="File mode"
+																  materialDesign:HintAssist.Hint="文件模式"
 																  materialDesign:HintAssist.IsFloating="True"
 																  ToolTipService.ShowDuration="25000"
 																  ItemsSource="{Binding Path=DataContext.CaptureFileModeItems, ElementName=ColorbarViewName}"
 																  SelectedItem="{Binding Path=DataContext.SelectedCaptureFileMode, ElementName=ColorbarViewName}">
 															<ComboBox.ToolTip>
 																<ToolTip MaxWidth="400">
-																	<TextBlock TextWrapping="Wrap" Text="JSON:&#10;Records are saved as JSON files with all needed data.&#10;&#10;JSON + CSV:&#10;For each record a CSV file is created in addition to the JSON file. The CSV includes all PresentMon data and is intended for special analysis."/>
+																	<TextBlock TextWrapping="Wrap" Text="JSON：&#10;记录保存为包含全部所需数据的 JSON 文件。&#10;&#10;JSON + CSV：&#10;除 JSON 文件外，还为每条记录生成 CSV 文件。CSV 包含全部 PresentMon 数据，用于特殊分析。"/>
 																</ToolTip>
 															</ComboBox.ToolTip>
 															<ComboBox.ItemTemplate>
@@ -539,27 +539,27 @@
 
                                             <Border Style="{StaticResource SettingsCard}" Margin="0">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Screenshots"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Choose where screenshots created from the toolbar are saved."/>
+<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="截图"/>
+ 													<TextBlock Style="{StaticResource SettingsDescription}" Text="选择工具栏截图的保存位置。"/>
 													<Grid Margin="0 12 0 0">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
 															<ColumnDefinition Width="Auto"/>
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
-														<TextBox Height="42" IsReadOnly="True" materialDesign:HintAssist.Hint="Screenshot directory"
+														<TextBox Height="42" IsReadOnly="True" materialDesign:HintAssist.Hint="截图目录"
 																 Text="{Binding ScreenshotDirectory, Mode=OneWay}"
 																 Style="{DynamicResource CxFloatingHintTextBox}"/>
 														<Button Grid.Column="1" Margin="10 0 0 0" Width="40" Height="40" Padding="0"
 																Style="{StaticResource MaterialDesignIconButton}"
 																Command="{Binding Path=DataContext.SelectScreenshotFolderCommand, ElementName=ColorbarViewName}"
-																ToolTip="Select screenshot folder">
+																ToolTip="选择截图文件夹">
 															<materialDesign:PackIcon Kind="Folder" Height="22" Width="22"/>
 														</Button>
 														<Button Grid.Column="2" Margin="6 0 0 0" Width="40" Height="40" Padding="0"
 																Style="{StaticResource MaterialDesignIconButton}"
 																Command="{Binding Path=DataContext.OpenScreenshotFolderCommand, ElementName=ColorbarViewName}"
-																ToolTip="Open screenshot folder">
+																ToolTip="打开截图文件夹">
 															<materialDesign:PackIcon Kind="Forward" Height="22" Width="22"/>
 														</Button>
 													</Grid>
@@ -572,18 +572,18 @@
 								<DataTemplate x:Name="HardwareDataTemplate" x:Key="HardwareContent">
 									<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 										<StackPanel Margin="24 20 18 22">
-											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="Hardware"/>
+											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="硬件"/>
 											<TextBlock Style="{StaticResource SettingsPageDescription}"
-													   Text="Select monitoring hardware and control how system information is stored."/>
+													   Text="选择监测硬件，并控制系统信息的存储方式。"/>
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Graphics adapter"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Choose the primary adapter used for monitoring and logging. Restart CapFrameX after changing it."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="显卡适配器"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="选择用于监测与记录的主适配器。更改后请重启 CapFrameX。"/>
 													<ComboBox Margin="0 14 0 0" Width="340" Height="42" HorizontalAlignment="Left"
-															  materialDesign:HintAssist.Hint="Primary graphics adapter"
+															  materialDesign:HintAssist.Hint="主显卡适配器"
 															  materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="140"
-															  ToolTip="Sets the primary graphics adapter for monitoring and logging. Restart CapFrameX after changing the adapter."
+															  ToolTip="设置用于监测与记录的主显卡适配器。更改适配器后请重启 CapFrameX。"
 															  ItemsSource="{Binding Path=DataContext.GraphicsAdapters, ElementName=ColorbarViewName}">
 														<ComboBox.Text>
 															<Binding Path="SelectedGraphicsAdapter" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
@@ -594,10 +594,10 @@
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Hardware labels"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Choose whether the hardware names stored with captures are detected or entered manually."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="硬件标签"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="选择与捕获一同存储的硬件名称是自动检测还是手动输入。"/>
 													<ComboBox Margin="0 14 0 0" Width="340" Height="42" HorizontalAlignment="Left"
-															  materialDesign:HintAssist.Hint="Hardware info source"
+															  materialDesign:HintAssist.Hint="硬件信息来源"
 															  materialDesign:HintAssist.IsFloating="True" MaxDropDownHeight="140"
 															  ItemsSource="{Binding Path=DataContext.HardwareInfoSourceItems, ElementName=ColorbarViewName}"
 															  SelectedItem="{Binding Path=DataContext.SelectedHardwareInfoSource, ElementName=ColorbarViewName}">
@@ -613,8 +613,8 @@
 											<Border Style="{StaticResource SettingsCard}"
 													Visibility="{Binding Path=DataContext.HasCustomInfo, ElementName=ColorbarViewName, Converter={StaticResource FalseToCollapsedConverter}}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Custom hardware labels"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Override the hardware names stored with captures."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="自定义硬件标签"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="覆盖与捕获一同存储的硬件名称。"/>
 													<Grid Margin="0 14 0 0">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
@@ -639,14 +639,14 @@
 																<Binding Path="DataContext.CustomGpuDescription" ElementName="ColorbarViewName" Mode="TwoWay" UpdateSourceTrigger="LostFocus"/>
 															</TextBox.Text>
 														</TextBox>
-														<TextBox Grid.Row="1" Margin="0 14 0 0" Height="42" materialDesign:HintAssist.Hint="RAM"
+														<TextBox Grid.Row="1" Margin="0 14 0 0" Height="42" materialDesign:HintAssist.Hint="内存"
 																 Style="{DynamicResource CxFloatingHintTextBox}"
 																 PreviewKeyDown="HardwareDescription_PreviewKeyDown">
 															<TextBox.Text>
 																<Binding Path="DataContext.CustomRamDescription" ElementName="ColorbarViewName" Mode="TwoWay" UpdateSourceTrigger="LostFocus"/>
 															</TextBox.Text>
 														</TextBox>
-														<TextBox Grid.Row="1" Grid.Column="2" Margin="0 14 0 0" Height="42" materialDesign:HintAssist.Hint="Mainboard"
+														<TextBox Grid.Row="1" Grid.Column="2" Margin="0 14 0 0" Height="42" materialDesign:HintAssist.Hint="主板"
 																 Style="{DynamicResource CxFloatingHintTextBox}"
 																 PreviewKeyDown="HardwareDescription_PreviewKeyDown">
 															<TextBox.Text>
@@ -659,21 +659,21 @@
 
 											<Border Style="{StaticResource SettingsCard}" Margin="0">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Power analysis"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Control which power sensor is used for power-related metrics."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="功耗分析"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="控制功耗相关指标使用的功耗 Sensor。"/>
 													<Grid Margin="0 14 0 0" ToolTipService.ShowDuration="25000">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Use TBP Sim values for analysis if available"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Prefer simulated total-board-power data for supported RDNA and Intel Arc GPUs."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="如可用，使用 TBP Sim 值进行分析"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="对支持的 RDNA 和 Intel Arc GPU，优先使用模拟的整板功耗数据。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}" IsChecked="{Binding UseTBPSim, Mode=TwoWay}">
 															<CheckBox.ToolTip>
 																<ToolTip MaxWidth="400">
-																	<TextBlock TextWrapping="Wrap" Text="If sensor data of a record contains &quot;TBP Sim&quot; values (RDNA + Intel Arc GPUs only), use these for analysis like FPS/W instead of &quot;GPU Total&quot;.&#10;For changes to take effect the analysis and comparison pages have to be reloaded and already inserted records on the report page need to be added again."/>
+																	<TextBlock TextWrapping="Wrap" Text="若记录的 Sensor 数据包含 &quot;TBP Sim&quot; 值（仅 RDNA 与 Intel Arc GPU），则分析 FPS/W 时使用它而非 &quot;GPU Total&quot;。&#10;更改生效需重新加载分析与对比页面，报告页已添加的记录需重新添加。"/>
 																</ToolTip>
 															</CheckBox.ToolTip>
 														</CheckBox>
@@ -687,14 +687,14 @@
 								<DataTemplate x:Key="AppContent">
 									<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 										<StackPanel Margin="24 20 18 22">
-											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="Application"/>
+											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="应用"/>
 											<TextBlock Style="{StaticResource SettingsPageDescription}"
-													   Text="Adjust appearance, startup behavior and application-wide services."/>
+													   Text="调整外观、启动行为与应用级服务。"/>
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Appearance and notifications"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Personalize the interface and choose whether CapFrameX may show team messages."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="外观与通知"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="个性化界面，并选择是否允许 CapFrameX 显示团队消息。"/>
 													<Separator Margin="0 12 0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
 													<Grid Margin="0 8">
 														<Grid.ColumnDefinitions>
@@ -702,21 +702,21 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Dark mode"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Use the dark CapFrameX color theme."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="深色模式"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="使用深色 CapFrameX 主题。"/>
 														</StackPanel>
 														<ToggleButton Grid.Column="1" Margin="16 0 4 0" VerticalAlignment="Center"
 																	  Click="MenuDarkModeButton_Click" IsChecked="{Binding IsDarkModeToggleChecked}"/>
 													</Grid>
 													<Separator Margin="0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
-													<Grid Margin="0 8" ToolTip="Allows you to receive important messages from the CX Team on app start">
+													<Grid Margin="0 8" ToolTip="允许在启动时接收 CapFrameX 团队的重要消息">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Receive notifications"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Show important messages from the CapFrameX team on startup."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="接收通知"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="启动时显示 CapFrameX 团队的重要消息。"/>
 														</StackPanel>
 														<ToggleButton Grid.Column="1" Margin="16 0 4 0" VerticalAlignment="Center"
 																	  IsChecked="{Binding AppNotificationsActive, Mode=TwoWay}"/>
@@ -726,8 +726,8 @@
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Windows behavior"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Control how CapFrameX starts and behaves when minimized."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Windows 行为"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="控制 CapFrameX 的启动与最小化行为。"/>
 													<Separator Margin="0 12 0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
 													<Grid Margin="0 8" IsEnabled="{Binding AutoStartIsEnabeld}">
 														<Grid.ColumnDefinitions>
@@ -735,8 +735,8 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Start with Windows"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Launch CapFrameX automatically after signing in."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="随 Windows 启动"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="登录后自动启动 CapFrameX。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}" IsChecked="{Binding Autostart, Mode=TwoWay}"/>
 													</Grid>
@@ -747,8 +747,8 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Start minimized"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Open CapFrameX without bringing the main window to the foreground."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="最小化启动"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="启动时不将主窗口置于前台。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}" IsChecked="{Binding StartMinimized, Mode=TwoWay}"/>
 													</Grid>
@@ -759,8 +759,8 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Minimize to tray"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Keep CapFrameX running in the notification area when minimized."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="最小化到托盘"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="最小化时在通知区域继续运行 CapFrameX。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}" IsChecked="{Binding MinimizeToTray, Mode=TwoWay}"/>
 													</Grid>
@@ -769,12 +769,12 @@
 
 											<Border Style="{StaticResource SettingsCard}" Margin="0">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Network target"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Set the host used by the network ping overlay entry."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="网络目标"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="设置网络 Ping Overlay 条目使用的主机。"/>
 													<TextBox Margin="0 14 0 0" Height="42" PreviewKeyDown="TextBox_KeyEnterUpdate"
-															 materialDesign:HintAssist.Hint="Ping URL"
+															 materialDesign:HintAssist.Hint="Ping 地址"
 															 Style="{DynamicResource CxFloatingHintTextBox}"
-															 ToolTip="URL to use for the network ping overlay entry">
+															 ToolTip="网络 Ping Overlay 条目使用的 URL">
 														<TextBox.Text>
 															<Binding Path="DataContext.PingURL" ElementName="ColorbarViewName" Mode="TwoWay" UpdateSourceTrigger="LostFocus"/>
 														</TextBox.Text>
@@ -787,14 +787,14 @@
 								<DataTemplate x:Key="RemoteContent">
 									<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 										<StackPanel Margin="24 20 18 22">
-											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="Remote"/>
+											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="远程"/>
 											<TextBlock Style="{StaticResource SettingsPageDescription}"
-													   Text="Configure local service access and review the endpoints exposed by CapFrameX."/>
+													   Text="配置本地服务访问，并查看 CapFrameX 公开的端点。"/>
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Service configuration"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Manage the local web service, RTSS output and MCP integration."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="服务配置"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="管理本地 Web 服务、RTSS 输出与 MCP 集成。"/>
 													<Separator Margin="0 12 0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
 													<Grid Margin="0 7">
 														<Grid.ColumnDefinitions>
@@ -802,12 +802,12 @@
 															<ColumnDefinition Width="190"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel VerticalAlignment="Center">
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Webservice port"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Listening port for the local remote service. Restart required."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Web 服务端口"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="本地远程服务的监听端口。需要重启。"/>
 														</StackPanel>
 														<TextBox Grid.Column="1" Height="42" Text="{Binding WebservicePort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 																 PreviewTextInput="IntegerValidationTextBox"
-																 materialDesign:HintAssist.Hint="Port"
+																 materialDesign:HintAssist.Hint="端口"
 																 Style="{DynamicResource CxFloatingHintTextBox}"/>
 													</Grid>
 													<Separator Margin="0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
@@ -817,13 +817,13 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Hide OSD on RTSS"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Keep the overlay available through the remote API without showing it in RTSS."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="在 RTSS 上隐藏 OSD"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="通过远程 API 保持 Overlay 可用，但不在 RTSS 中显示。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}" IsChecked="{Binding HideOverlay, Mode=TwoWay}">
 															<CheckBox.ToolTip>
 																<ToolTip StaysOpen="True" MaxWidth="275">
-																	<TextBlock Text="If checked, the overlay will not be shown on RTSS but will still be accessible through remote API." TextWrapping="Wrap"/>
+																	<TextBlock Text="勾选后，Overlay 不在 RTSS 上显示，但仍可通过远程 API 访问。" TextWrapping="Wrap"/>
 																</ToolTip>
 															</CheckBox.ToolTip>
 														</CheckBox>
@@ -835,13 +835,13 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Enable MCP server"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Expose the local MCP endpoint for tool integrations. Restart required."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="启用 MCP 服务"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="公开本地 MCP 端点以供工具集成。需要重启。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}" IsChecked="{Binding McpEnabled, Mode=TwoWay}">
 															<CheckBox.ToolTip>
 																<ToolTip StaysOpen="True" MaxWidth="275">
-																	<TextBlock Text="Enables the local MCP endpoint for tool integrations. Restart CapFrameX after changing this setting." TextWrapping="Wrap"/>
+																	<TextBlock Text="启用本地 MCP 端点以供工具集成。更改后请重启 CapFrameX。" TextWrapping="Wrap"/>
 																</ToolTip>
 															</CheckBox.ToolTip>
 														</CheckBox>
@@ -851,8 +851,8 @@
 
 											<Border Style="{StaticResource SettingsCard}" Margin="0">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Available endpoints"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Read-only addresses generated from the current service configuration."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="可用端点"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="根据当前服务配置生成的只读地址。"/>
 													<Grid Margin="0 14 0 0">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
@@ -864,24 +864,24 @@
 																	 Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
 																	 materialDesign:HintAssist.Hint="OSD HTTP URL"
 																	 Style="{DynamicResource CxFloatingHintTextBox}"
-																	 ToolTip="HTTP URL to access the current overlay output (overlay needs to be active)"/>
+																	 ToolTip="访问当前 Overlay 输出的 HTTP URL（Overlay 需处于活动状态）"/>
 															<TextBox Height="42" Margin="0 0 0 10" Text="{Binding OsdWSUrl, Mode=OneWay}" IsReadOnly="True"
 																	 Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
 																	 materialDesign:HintAssist.Hint="OSD WebSocket URL"
 																	 Style="{DynamicResource CxFloatingHintTextBox}"
-																	 ToolTip="WebSocket URL to access the current overlay output (overlay needs to be active)"/>
+																	 ToolTip="访问当前 Overlay 输出的 WebSocket URL（Overlay 需处于活动状态）"/>
 															<TextBox Height="42" Text="{Binding SensorsWSUrl, Mode=OneWay}" IsReadOnly="True"
 																	 Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
 																	 materialDesign:HintAssist.Hint="Sensor stream WebSocket URL"
 																	 Style="{DynamicResource CxFloatingHintTextBox}"
-																	 ToolTip="WebSocket URL to access the complete sensor stream"/>
+																	 ToolTip="访问完整 Sensor 数据流的 WebSocket URL"/>
 														</StackPanel>
 														<StackPanel Grid.Column="2">
 															<TextBox Height="42" Margin="0 0 0 10" Text="{Binding ActiveSensorsWSUrl, Mode=OneWay}" IsReadOnly="True"
 																	 Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
 																	 materialDesign:HintAssist.Hint="Active sensors WebSocket URL"
 																	 Style="{DynamicResource CxFloatingHintTextBox}"
-																	 ToolTip="WebSocket URL to access all sensors currently selected in the Sensors tab"/>
+																	 ToolTip="访问 Sensor 选项卡中当前所选全部 Sensor 的 WebSocket URL"/>
 															<TextBox MinHeight="42" Text="https://app.swaggerhub.com/apis/CapFrameX/cx-remote/1.0.0"
 																	 TextWrapping="Wrap" IsReadOnly="True"
 																	 Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
@@ -897,14 +897,14 @@
 								<DataTemplate x:Key="UpdateContent">
 									<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 										<StackPanel Margin="24 20 18 22">
-											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="Update"/>
+											<TextBlock Style="{StaticResource SettingsPageTitle}" Text="更新"/>
 											<TextBlock Style="{StaticResource SettingsPageDescription}"
-													   Text="Check for updates or deliberately return to an earlier supported release."/>
+													   Text="检查更新，或主动回退到受支持的旧版本。"/>
 
 											<Border Style="{StaticResource SettingsCard}">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Version status"/>
-													<TextBlock Style="{StaticResource SettingsDescription}" Text="Automatic checks follow the installed channel. Every published Release and Beta build remains selectable below."/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="版本状态"/>
+													<TextBlock Style="{StaticResource SettingsDescription}" Text="自动检查跟随已安装的通道。下方可选择每个已发布的正式版和测试版。"/>
 													<Grid Margin="0 16 0 0">
 														<Grid.ColumnDefinitions>
 															<ColumnDefinition Width="*"/>
@@ -915,7 +915,7 @@
 														</Grid.ColumnDefinitions>
 														<Border Padding="14" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}" CornerRadius="6">
 															<StackPanel>
-																<TextBlock Style="{StaticResource SettingsDescription}" Text="Installed version"/>
+																<TextBlock Style="{StaticResource SettingsDescription}" Text="已安装版本"/>
 																<TextBlock Margin="0 4 0 0" FontSize="18" FontWeight="SemiBold"
 																		   Text="{Binding UpdateViewModel.InstalledVersionString, Mode=OneWay}"/>
 																<TextBlock Margin="0 3 0 0" FontSize="11" Opacity="0.7"
@@ -924,14 +924,14 @@
 														</Border>
 														<Border Grid.Column="2" Padding="14" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}" CornerRadius="6">
 															<StackPanel>
-																<TextBlock Style="{StaticResource SettingsDescription}" Text="Latest Release"/>
+																<TextBlock Style="{StaticResource SettingsDescription}" Text="最新正式版"/>
 																<TextBlock Margin="0 4 0 0" FontSize="18" FontWeight="SemiBold"
 																		   Text="{Binding UpdateViewModel.LatestReleaseVersionString, Mode=OneWay}"/>
 															</StackPanel>
 														</Border>
 														<Border Grid.Column="4" Padding="14" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}" CornerRadius="6">
 															<StackPanel>
-																<TextBlock Style="{StaticResource SettingsDescription}" Text="Latest Beta"/>
+																<TextBlock Style="{StaticResource SettingsDescription}" Text="最新测试版"/>
 																<TextBlock Margin="0 4 0 0" FontSize="18" FontWeight="SemiBold"
 																		   Text="{Binding UpdateViewModel.LatestBetaVersionString, Mode=OneWay}"/>
 															</StackPanel>
@@ -942,7 +942,7 @@
 															Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"
 															CornerRadius="6">
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Update status"/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="更新状态"/>
 															<TextBlock Margin="0 5 0 0" MinHeight="34" TextWrapping="Wrap"
 																	   Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
 																	   Text="{Binding UpdateViewModel.StatusText, Mode=OneWay}"/>
@@ -953,15 +953,15 @@
 													</Border>
 
 													<StackPanel Margin="0 16 0 0" Orientation="Horizontal">
-														<Button Width="180" Height="36" Content="CHECK FOR UPDATES"
+														<Button Width="180" Height="36" Content="检查更新"
 																Style="{StaticResource MaterialDesignRaisedButton}"
 																Command="{Binding UpdateViewModel.CheckForUpdateCommand}"
-																ToolTip="Ask the CapFrameX update server whether a newer version is available"/>
-														<Button Width="145" Height="36" Margin="10 0 0 0" Content="SHOW UPDATE"
+																ToolTip="向 CapFrameX 更新服务器查询是否有新版本"/>
+														<Button Width="145" Height="36" Margin="10 0 0 0" Content="查看更新"
 																Style="{StaticResource MaterialDesignOutlinedButton}"
 																Click="ShowUpdate_Click"
 																Command="{Binding UpdateViewModel.ShowUpdateDialogCommand}"
-																ToolTip="Show what the available update contains"/>
+																ToolTip="查看可用更新的内容"/>
 													</StackPanel>
 
 													<Separator Margin="0 16 0 4" Background="{DynamicResource MaterialDesign.Brush.TextBox.HoverBackground}"/>
@@ -971,23 +971,23 @@
 															<ColumnDefinition Width="Auto"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel>
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Check on start"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Check for a newer CapFrameX release every time the application starts."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="启动时检查"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="每次启动应用时检查是否有新版 CapFrameX。"/>
 														</StackPanel>
 														<CheckBox Grid.Column="1" Style="{StaticResource SettingsCheckBox}"
 																  IsChecked="{Binding UpdateViewModel.AutoUpdateCheckActive, Mode=TwoWay}"
-																  ToolTip="Check for updates every time CapFrameX starts"/>
+																  ToolTip="每次启动 CapFrameX 时检查更新"/>
 													</Grid>
 												</StackPanel>
 											</Border>
 
 											<Border Style="{StaticResource SettingsCard}" Margin="0">
 												<StackPanel>
-													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="Version history"/>
+													<TextBlock Style="{StaticResource SettingsSectionTitle}" Text="版本历史"/>
 													<TextBlock Style="{StaticResource SettingsDescription}" TextWrapping="Wrap">
-														<Run Text="Install any published release from "/>
+														<Run Text="可安装从 "/>
 														<Run FontWeight="SemiBold" Text="{Binding UpdateViewModel.MinimumRollbackVersionString, Mode=OneWay}"/>
-														<Run Text=" onward. Selecting an older version starts an explicit rollback."/>
+														<Run Text=" 起的任意已发布版本。选择旧版本将开始显式回退。"/>
 													</TextBlock>
 
 													<Grid Margin="0 16 0 0">
@@ -998,13 +998,13 @@
 															<ColumnDefinition Width="155"/>
 														</Grid.ColumnDefinitions>
 														<StackPanel VerticalAlignment="Center">
-															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="Target version"/>
-															<TextBlock Style="{StaticResource SettingsDescription}" Text="Packages are verified before installation."/>
+															<TextBlock Style="{StaticResource SettingsOptionTitle}" Text="目标版本"/>
+															<TextBlock Style="{StaticResource SettingsDescription}" Text="安装前会校验安装包。"/>
 														</StackPanel>
 														<ComboBox Grid.Column="1" Height="42" MaxDropDownHeight="260"
 																  ItemsSource="{Binding UpdateViewModel.AvailableVersionsView, Mode=OneWay}"
 																  SelectedItem="{Binding UpdateViewModel.SelectedVersion, Mode=TwoWay}"
-																  materialDesign:HintAssist.Hint="Published version"
+																  materialDesign:HintAssist.Hint="已发布版本"
 																  materialDesign:HintAssist.IsFloating="True">
 															<ComboBox.GroupStyle>
 																<GroupStyle>
@@ -1037,7 +1037,7 @@
 																				 VerticalAlignment="Top" Foreground="{DynamicResource MaterialDesign.Brush.Primary}"/>
 															<TextBlock TextWrapping="Wrap" MaxWidth="590"
 																	   Foreground="{DynamicResource MaterialDesign.Brush.ForegroundLight}"
-																	   Text="Rollback replaces the application version. Captures and settings remain, but newer settings may not be compatible with the selected release."/>
+																	   Text="回退将替换应用版本。捕获与设置保留，但新版设置可能与所选版本不兼容。"/>
 														</StackPanel>
 													</Border>
 												</StackPanel>
@@ -1052,9 +1052,9 @@
 											<RowDefinition Height="Auto"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBlock Style="{StaticResource SettingsPageTitle}" Text="Help"/>
+										<TextBlock Style="{StaticResource SettingsPageTitle}" Text="帮助"/>
 										<TextBlock Grid.Row="1" Style="{StaticResource SettingsPageDescription}"
-												   Text="Quick reference for working with CapFrameX."/>
+												   Text="CapFrameX 使用速查。"/>
 										<Border Grid.Row="2" Style="{StaticResource SettingsCard}" Margin="0">
 											<xctk:RichTextBox IsHitTestVisible="False" IsReadOnly="True" BorderThickness="0"
 														  Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
